@@ -3,8 +3,9 @@ extends Area2D
 signal update_health(health)
 signal death
 
-export var acceleration = 1000
+export var acceleration = 1200
 export var friction = 600
+export var max_speed = 500
 
 var health = 3
 var screen_size
@@ -32,7 +33,7 @@ func _process(delta):
 		momentum += velocity
 		
 	momentum -= momentum.normalized() * friction * delta
-	momentum = momentum.clamped(500)
+	momentum = momentum.clamped(max_speed)
 	
 	position += momentum * delta
 	
