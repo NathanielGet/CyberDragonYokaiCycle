@@ -3,7 +3,7 @@ extends Area2D
 signal update_health(health)
 signal death
 
-export var acceleration = 10
+export var acceleration = 1000
 export var friction = 600
 
 var health = 3
@@ -28,7 +28,7 @@ func _process(delta):
 	if Input.is_action_pressed("move_up"):
 		velocity.y -= 1
 	if velocity.length() > 0:
-		velocity = velocity.normalized() * acceleration
+		velocity = velocity.normalized() * acceleration * delta
 		momentum += velocity
 		
 	momentum -= momentum.normalized() * friction * delta
