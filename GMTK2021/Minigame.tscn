@@ -1,5 +1,6 @@
-[gd_scene load_steps=62 format=2]
+[gd_scene load_steps=87 format=2]
 
+[ext_resource path="res://Sprites/Minigame_UI_V2_SCALED.png" type="Texture" id=1]
 [ext_resource path="res://Port.gd" type="Script" id=2]
 [ext_resource path="res://Minigame.gd" type="Script" id=3]
 [ext_resource path="res://Wire.gd" type="Script" id=4]
@@ -8,6 +9,126 @@
 [ext_resource path="res://Sprites/Slot_BLUE_SCALED.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/WIRE_SCALED.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/Minigame_UI_SCALED.png" type="Texture" id=9]
+
+[sub_resource type="AtlasTexture" id=54]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=55]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 192, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=56]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 384, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=57]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 576, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=58]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 768, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=59]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 960, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=60]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 1152, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=61]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 1344, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=62]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 192, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=63]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 192, 192, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=64]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 384, 192, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=65]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 576, 192, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=66]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 768, 192, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=67]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 960, 192, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=68]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 1152, 192, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=69]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 1344, 192, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=70]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 384, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=71]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 192, 384, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=72]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 384, 384, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=73]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 576, 384, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=74]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 768, 384, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=75]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 960, 384, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=76]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 1152, 384, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=77]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 1344, 384, 192, 192 )
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -91,9 +212,14 @@ region = Rect2( 672, 96, 96, 96 )
 
 [sub_resource type="SpriteFrames" id=17]
 animations = [ {
-"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ) ],
+"frames": [ SubResource( 54 ), SubResource( 55 ), SubResource( 56 ), SubResource( 57 ), SubResource( 58 ), SubResource( 59 ), SubResource( 60 ), SubResource( 61 ), SubResource( 62 ), SubResource( 63 ), SubResource( 64 ), SubResource( 65 ), SubResource( 66 ), SubResource( 67 ), SubResource( 68 ), SubResource( 69 ), SubResource( 70 ), SubResource( 71 ), SubResource( 72 ), SubResource( 73 ), SubResource( 74 ), SubResource( 75 ), SubResource( 76 ), SubResource( 77 ) ],
 "loop": true,
 "name": "default",
+"speed": 12.0
+}, {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ) ],
+"loop": true,
+"name": "old",
 "speed": 12.0
 } ]
 
@@ -286,14 +412,13 @@ scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 3 )
 
 [node name="Background" type="AnimatedSprite" parent="."]
-position = Vector2( 2578, 1140 )
-scale = Vector2( 6.25, 6.25 )
+position = Vector2( 2527.5, 1087.5 )
+scale = Vector2( 3.66146, 3.66146 )
 z_index = -2
 frames = SubResource( 17 )
 
 [node name="whitePort" type="Area2D" parent="."]
-position = Vector2( 2578, 1140 )
-z_index = -3
+position = Vector2( 2528, 1088 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
@@ -310,7 +435,7 @@ scale = Vector2( 10, 10 )
 shape = SubResource( 26 )
 
 [node name="redPort" type="Area2D" parent="."]
-position = Vector2( 2754, 1244 )
+position = Vector2( 2688, 1180 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
@@ -326,7 +451,7 @@ scale = Vector2( 10, 10 )
 shape = SubResource( 35 )
 
 [node name="bluePort" type="Area2D" parent="."]
-position = Vector2( 2399, 1244 )
+position = Vector2( 2364, 1178 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
@@ -342,7 +467,7 @@ scale = Vector2( 10, 10 )
 shape = SubResource( 44 )
 
 [node name="greenPort" type="Area2D" parent="."]
-position = Vector2( 2578, 932 )
+position = Vector2( 2522, 886 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
@@ -358,7 +483,7 @@ scale = Vector2( 10, 10 )
 shape = SubResource( 53 )
 
 [node name="redPort2" type="Area2D" parent="."]
-position = Vector2( 2399, 1044 )
+position = Vector2( 2318, 970 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
@@ -375,7 +500,7 @@ scale = Vector2( 10, 10 )
 shape = SubResource( 35 )
 
 [node name="greenPort2" type="Area2D" parent="."]
-position = Vector2( 2578, 1340 )
+position = Vector2( 2526, 1316 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
@@ -392,7 +517,7 @@ scale = Vector2( 10, 10 )
 shape = SubResource( 53 )
 
 [node name="bluePort2" type="Area2D" parent="."]
-position = Vector2( 2754, 1044 )
+position = Vector2( 2736, 968 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
