@@ -33,6 +33,7 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
+nodeColor = "red"
 
 [node name="Sprite" type="Sprite" parent="Port2"]
 position = Vector2( 3.05176e-05, 1.52588e-05 )
