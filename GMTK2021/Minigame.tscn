@@ -44,4 +44,8 @@ scale = Vector2( 10, 10 )
 shape = SubResource( 1 )
 
 [node name="Line2D" type="Line2D" parent="."]
+width = 50.0
+default_color = Color( 0.4, 0.501961, 1, 1 )
+texture = ExtResource( 1 )
+texture_mode = 2
 script = ExtResource( 4 )

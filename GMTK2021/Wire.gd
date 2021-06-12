@@ -30,8 +30,9 @@ func _process(delta):
 		lineStarted = false
 		clear_points()
 		
-func entered():
+func entered(port):
 	mouseOver = true
+	print(port)
 	#print("Moused Over")
 	
 func exited():
