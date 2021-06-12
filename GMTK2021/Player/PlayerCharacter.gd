@@ -12,10 +12,10 @@ var health = 3
 var screen_size
 var momentum = Vector2()
 
-var projectile = preload("res://Projectile.tscn")
+var projectile = preload("res://Projectile/Projectile.tscn")
 var cool_down = false #Cooldown from shooting
 
-onready var proj_type = $"/root/ProjectileTypes".attack_type.RED
+onready var proj_type = $"/root/ProjectileTypes".attack_type.GREEN
 
 var invuln = false
 
