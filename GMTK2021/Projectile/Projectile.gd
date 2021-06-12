@@ -20,4 +20,7 @@ func destroy():
 	linear_velocity = Vector2()
 	#Play animation
 	$AnimatedSprite.play("death")
-	
+
+func _on_Projectile_body_entered(_body):
+	print_debug("Projectile Hit")
+	queue_free()

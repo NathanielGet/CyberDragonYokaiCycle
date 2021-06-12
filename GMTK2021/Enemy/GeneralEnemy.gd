@@ -41,9 +41,6 @@ func _process(delta):
 	# Add animation stuffs here
 
 func _on_EnemyCharacter_body_entered(_body):
-	# If we are invulnerable, do nothing
-	print_debug("Enemy Hit")
-		
 	#Apply the damage, and alert UI
 	health -= 1
 #	emit_signal("update_health", health)

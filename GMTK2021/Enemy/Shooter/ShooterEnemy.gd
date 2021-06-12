@@ -13,6 +13,7 @@ func _process(delta):
 	
 	if counter % fire_rate == 0:
 		fire()
+		counter = 0
 	counter += 1
 	
 func _on_EnemyCharacter_body_entered(_body):
