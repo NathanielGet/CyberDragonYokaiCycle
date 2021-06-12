@@ -42,16 +42,16 @@ func _process(delta):
 			add_point(get_global_mouse_position())
 			if self.points.size() > 3:
 				remove_point(2)
-		elif Input.is_action_pressed("click") and mouseOver == true:
+		elif Input.is_action_pressed("click") and mouseOver == true and visitedNodes[1] == lastNodeEntered:
 			
-			if visitedNodes[1] == lastNodeEntered:
-				lineStarted = true
-				validConnection = false
+			
+			lineStarted = true
+			validConnection = false
 			
 			#while get_point_count() > length:
 			#	remove_point(0)
 		
-		if Input.is_action_just_released("click"):
+		if lineStarted and Input.is_action_just_released("click"):
 			lineStarted = false
 			if mouseOver == true:
 				visitedNodes[2] = lastNodeEntered
