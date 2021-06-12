@@ -8,10 +8,12 @@ var visitedNodes = ["start", "end", "stage2"]
 var lastNodeEntered
 var validConnection = false
 var connectionStage = 1
-
+var scaleOffset
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	clear_points()
+	scaleOffset = get_node("..").scale
+	
 
 
 func _process(delta):
@@ -19,7 +21,9 @@ func _process(delta):
 	if connectionStage == 1:
 		
 		if lineStarted:
-			add_point(get_global_mouse_position())
+#			print(get_global_mouse_position())
+			add_point(get_global_mouse_position() / scaleOffset)
+#			print(get_point_position(0))
 			if self.points.size() > 2:
 				remove_point(1)
 		elif Input.is_action_pressed("click") and mouseOver == true:
@@ -39,7 +43,7 @@ func _process(delta):
 				#print(visitedNodes)
 	elif connectionStage == 2:
 		if lineStarted:
-			add_point(get_global_mouse_position())
+			add_point(get_global_mouse_position() / scaleOffset)
 			if self.points.size() > 3:
 				remove_point(2)
 		elif Input.is_action_pressed("click") and mouseOver == true and visitedNodes[1] == lastNodeEntered:
