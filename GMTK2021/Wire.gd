@@ -9,10 +9,14 @@ var lastNodeEntered
 var validConnection = false
 var connectionStage = 1
 var scaleOffset
+
+signal load_ammo(ammo_type)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	clear_points()
 	scaleOffset = get_node("..").scale
+	connect("load_ammo", self, "testAmmoSignal")
 	
 
 
@@ -99,6 +103,7 @@ func checkConnection():
 			add_point(visitedNodes[2].position)
 			connectionStage = 1
 			validConnection = true
+			emit_signal("load_ammo", visitedNodes[1].nodeColor)
 		else:
 			remove_point(2)
 
@@ -121,3 +126,6 @@ func spinInner():
 	nodePositions.shuffle()
 	for i in range(0, innerNodes.size()):
 		innerNodes[i].position = nodePositions[i]
+
+func testAmmoSignal(ammo):
+	print("Loaded ammo type: ", ammo)
