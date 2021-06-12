@@ -9,131 +9,85 @@
 [ext_resource path="res://Sprites/Slot_BLUE_SCALED.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/WIRE_SCALED.png" type="Texture" id=8]
 
-[sub_resource type="AtlasTexture" id=29]
+[sub_resource type="AtlasTexture" id=1]
 flags = 4
 atlas = ExtResource( 8 )
 region = Rect2( 0, 0, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=30]
+[sub_resource type="AtlasTexture" id=2]
 flags = 4
 atlas = ExtResource( 8 )
 region = Rect2( 64, 0, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=31]
+[sub_resource type="AtlasTexture" id=3]
 flags = 4
 atlas = ExtResource( 8 )
 region = Rect2( 128, 0, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=32]
+[sub_resource type="AtlasTexture" id=4]
 flags = 4
 atlas = ExtResource( 8 )
 region = Rect2( 192, 0, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=33]
+[sub_resource type="AtlasTexture" id=5]
 flags = 4
 atlas = ExtResource( 8 )
 region = Rect2( 256, 0, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=34]
+[sub_resource type="AtlasTexture" id=6]
 flags = 4
 atlas = ExtResource( 8 )
 region = Rect2( 320, 0, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=35]
+[sub_resource type="AtlasTexture" id=7]
 flags = 4
 atlas = ExtResource( 8 )
 region = Rect2( 384, 0, 64, 64 )
 
-[sub_resource type="SpriteFrames" id=36]
+[sub_resource type="SpriteFrames" id=8]
 animations = [ {
-"frames": [ SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ) ],
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
 "loop": true,
 "name": "default",
 "speed": 7.0
 } ]
 
-[sub_resource type="CircleShape2D" id=37]
+[sub_resource type="CircleShape2D" id=9]
 radius = 7.5
-
-[sub_resource type="AtlasTexture" id=2]
-flags = 4
-atlas = ExtResource( 5 )
-region = Rect2( 0, 0, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=3]
-flags = 4
-atlas = ExtResource( 5 )
-region = Rect2( 64, 0, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=4]
-flags = 4
-atlas = ExtResource( 5 )
-region = Rect2( 128, 0, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=5]
-flags = 4
-atlas = ExtResource( 5 )
-region = Rect2( 192, 0, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=6]
-flags = 4
-atlas = ExtResource( 5 )
-region = Rect2( 256, 0, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=7]
-flags = 4
-atlas = ExtResource( 5 )
-region = Rect2( 320, 0, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=8]
-flags = 4
-atlas = ExtResource( 5 )
-region = Rect2( 384, 0, 64, 64 )
-
-[sub_resource type="SpriteFrames" id=9]
-animations = [ {
-"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
-"loop": true,
-"name": "default",
-"speed": 14.0
-} ]
-
-[sub_resource type="CircleShape2D" id=26]
-radius = 8.0
 
 [sub_resource type="AtlasTexture" id=10]
 flags = 4
-atlas = ExtResource( 7 )
+atlas = ExtResource( 5 )
 region = Rect2( 0, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=11]
 flags = 4
-atlas = ExtResource( 7 )
+atlas = ExtResource( 5 )
 region = Rect2( 64, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=12]
 flags = 4
-atlas = ExtResource( 7 )
+atlas = ExtResource( 5 )
 region = Rect2( 128, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=13]
 flags = 4
-atlas = ExtResource( 7 )
+atlas = ExtResource( 5 )
 region = Rect2( 192, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=14]
 flags = 4
-atlas = ExtResource( 7 )
+atlas = ExtResource( 5 )
 region = Rect2( 256, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=15]
 flags = 4
-atlas = ExtResource( 7 )
+atlas = ExtResource( 5 )
 region = Rect2( 320, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=16]
 flags = 4
-atlas = ExtResource( 7 )
+atlas = ExtResource( 5 )
 region = Rect2( 384, 0, 64, 64 )
 
 [sub_resource type="SpriteFrames" id=17]
@@ -144,60 +98,106 @@ animations = [ {
 "speed": 14.0
 } ]
 
-[sub_resource type="CircleShape2D" id=27]
+[sub_resource type="CircleShape2D" id=18]
 radius = 8.0
-
-[sub_resource type="AtlasTexture" id=18]
-flags = 4
-atlas = ExtResource( 6 )
-region = Rect2( 0, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=19]
 flags = 4
-atlas = ExtResource( 6 )
-region = Rect2( 64, 0, 64, 64 )
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=20]
 flags = 4
-atlas = ExtResource( 6 )
-region = Rect2( 128, 0, 64, 64 )
+atlas = ExtResource( 7 )
+region = Rect2( 64, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=21]
 flags = 4
-atlas = ExtResource( 6 )
-region = Rect2( 192, 0, 64, 64 )
+atlas = ExtResource( 7 )
+region = Rect2( 128, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=22]
 flags = 4
-atlas = ExtResource( 6 )
-region = Rect2( 256, 0, 64, 64 )
+atlas = ExtResource( 7 )
+region = Rect2( 192, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=23]
 flags = 4
-atlas = ExtResource( 6 )
-region = Rect2( 320, 0, 64, 64 )
+atlas = ExtResource( 7 )
+region = Rect2( 256, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=24]
 flags = 4
-atlas = ExtResource( 6 )
+atlas = ExtResource( 7 )
+region = Rect2( 320, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=25]
+flags = 4
+atlas = ExtResource( 7 )
 region = Rect2( 384, 0, 64, 64 )
 
-[sub_resource type="SpriteFrames" id=25]
+[sub_resource type="SpriteFrames" id=26]
 animations = [ {
-"frames": [ SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ) ],
+"frames": [ SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ) ],
 "loop": true,
 "name": "default",
 "speed": 14.0
 } ]
 
-[sub_resource type="CircleShape2D" id=28]
+[sub_resource type="CircleShape2D" id=27]
+radius = 8.0
+
+[sub_resource type="AtlasTexture" id=28]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=29]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 64, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=30]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 128, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=31]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 192, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=32]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 256, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=33]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 320, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=34]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 384, 0, 64, 64 )
+
+[sub_resource type="SpriteFrames" id=35]
+animations = [ {
+"frames": [ SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ) ],
+"loop": true,
+"name": "default",
+"speed": 14.0
+} ]
+
+[sub_resource type="CircleShape2D" id=36]
 radius = 8.0
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 3 )
 
 [node name="whitePort" type="Area2D" parent="."]
-position = Vector2( 768, 328 )
+position = Vector2( 720, 416 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
@@ -205,19 +205,17 @@ __meta__ = {
 nodeColor = "white"
 
 [node name="Sprite" type="AnimatedSprite" parent="whitePort"]
-position = Vector2( -48, 48 )
 scale = Vector2( 2.5, 2.5 )
-frames = SubResource( 36 )
-frame = 2
+frames = SubResource( 8 )
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="whitePort"]
-position = Vector2( -48, 48 )
 scale = Vector2( 10, 10 )
-shape = SubResource( 37 )
+shape = SubResource( 9 )
 
 [node name="redPort" type="Area2D" parent="."]
-position = Vector2( 1024, 544 )
+position = Vector2( 1024, 552 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
@@ -227,36 +225,34 @@ nodeColor = "red"
 [node name="Sprite" type="AnimatedSprite" parent="redPort"]
 position = Vector2( -48, 48 )
 scale = Vector2( 2.5, 2.5 )
-frames = SubResource( 9 )
-frame = 4
+frames = SubResource( 17 )
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="redPort"]
 position = Vector2( -48, 48 )
 scale = Vector2( 10, 10 )
-shape = SubResource( 26 )
+shape = SubResource( 18 )
 
 [node name="bluePort" type="Area2D" parent="."]
-position = Vector2( 496, 544 )
+position = Vector2( 496, 600 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Sprite" type="AnimatedSprite" parent="bluePort"]
-position = Vector2( -48, 48 )
 scale = Vector2( 2.5, 2.5 )
-frames = SubResource( 17 )
-frame = 4
+frames = SubResource( 26 )
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bluePort"]
-position = Vector2( -48, 48 )
 scale = Vector2( 10, 10 )
 shape = SubResource( 27 )
 
 [node name="greenPort" type="Area2D" parent="."]
-position = Vector2( 768, 56 )
+position = Vector2( 720, 96 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
@@ -264,16 +260,14 @@ __meta__ = {
 nodeColor = "green"
 
 [node name="Sprite" type="AnimatedSprite" parent="greenPort"]
-position = Vector2( -48, 48 )
 scale = Vector2( 2.5, 2.5 )
-frames = SubResource( 25 )
-frame = 6
+frames = SubResource( 35 )
+frame = 4
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="greenPort"]
-position = Vector2( -48, 48 )
 scale = Vector2( 10, 10 )
-shape = SubResource( 28 )
+shape = SubResource( 36 )
 
 [node name="Line2D" type="Line2D" parent="."]
 width = 50.0
