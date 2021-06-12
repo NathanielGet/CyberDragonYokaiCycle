@@ -17,6 +17,7 @@ func _ready():
 	clear_points()
 	scaleOffset = get_node("..").scale
 	connect("load_ammo", self, "testAmmoSignal")
+	get_tree().call_group("outerNodes", "deactivate")
 	
 
 
@@ -33,6 +34,8 @@ func _process(_delta):
 		elif Input.is_action_pressed("click") and mouseOver == true:
 			if validConnection:
 				spinInner()
+				get_tree().call_group("outerNodes", "deactivate")
+				get_tree().call_group("innerNodes", "activate")
 				validConnection = false
 			visitedNodes[0] = lastNodeEntered
 			if lastNodeEntered.nodeRing == "center":
@@ -59,6 +62,8 @@ func _process(_delta):
 				lineStarted = true
 			elif visitedNodes[0] == lastNodeEntered:
 				connectionStage = 1
+				get_tree().call_group("innerNodes", "activate")
+				get_tree().call_group("outerNodes", "deactivate")
 			
 			#while get_point_count() > length:
 			#	remove_point(0)
@@ -92,6 +97,11 @@ func checkConnection():
 			add_point(visitedNodes[1].position)
 			connectionStage = 2
 			spinOuter()
+			get_tree().call_group("outerNodes", "activate")
+			get_tree().call_group_flags(2, "innerNodes", "deactivate")
+			visitedNodes[1].activate()
+
+		
 		else:
 			clear_points()
 	elif connectionStage == 2:
@@ -103,6 +113,8 @@ func checkConnection():
 			add_point(visitedNodes[2].position)
 			connectionStage = 1
 			validConnection = true
+			get_tree().call_group_flags(2, "outerNodes", "deactivate")
+			visitedNodes[2].activate()
 			emit_signal("load_ammo", visitedNodes[1].nodeColor)
 		else:
 			remove_point(2)
@@ -126,6 +138,7 @@ func spinInner():
 	nodePositions.shuffle()
 	for i in range(0, innerNodes.size()):
 		innerNodes[i].position = nodePositions[i]
+	
 
 func testAmmoSignal(ammo):
 	print("Loaded ammo type: ", ammo)

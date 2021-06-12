@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=2]
+[gd_scene load_steps=90 format=2]
 
 [ext_resource path="res://Sprites/Minigame_UI_V2_SCALED.png" type="Texture" id=1]
 [ext_resource path="res://Port.gd" type="Script" id=2]
@@ -9,6 +9,9 @@
 [ext_resource path="res://Sprites/Slot_BLUE_SCALED.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/WIRE_SCALED.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/Minigame_UI_SCALED.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/deactivedred.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/deactivedgreen.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/deactivedblue.png" type="Texture" id=12]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -310,6 +313,11 @@ animations = [ {
 "loop": true,
 "name": "default",
 "speed": 14.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "deactivated",
+"speed": 5.0
 } ]
 
 [sub_resource type="CircleShape2D" id=59]
@@ -356,6 +364,11 @@ animations = [ {
 "loop": true,
 "name": "default",
 "speed": 14.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "deactivated",
+"speed": 5.0
 } ]
 
 [sub_resource type="CircleShape2D" id=68]
@@ -402,6 +415,11 @@ animations = [ {
 "loop": true,
 "name": "default",
 "speed": 14.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "deactivated",
+"speed": 5.0
 } ]
 
 [sub_resource type="CircleShape2D" id=77]

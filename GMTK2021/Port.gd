@@ -18,3 +18,10 @@ func _ready():
 
 func send_port():
 	emit_signal("port_hovered", self)
+
+
+func deactivate():
+	$Sprite.set_animation("deactivated")
+
+func activate():
+	$Sprite.set_animation("default")
