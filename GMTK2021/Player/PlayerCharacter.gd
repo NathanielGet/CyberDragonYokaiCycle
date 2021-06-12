@@ -8,7 +8,9 @@ export var acceleration = 1200
 export var friction = 600
 export var max_speed = 500
 
-var health = 3
+export var health = 3
+export var ammo = 10
+
 var screen_size
 var momentum = Vector2()
 
@@ -98,11 +100,15 @@ func _on_InvulnTimer_timeout():
 
 # Spawn and fire a projectile
 func fire():
-	var proj = projectile.instance()
-	owner.add_child(proj)
-	proj.setup(proj_type)
-	proj.position = Vector2(position.x + 50, position.y)
-	proj.linear_velocity = Vector2(projectile_speed + momentum.x, momentum.y )
-	cool_down = true
-	yield(get_tree().create_timer(0.5), "timeout")
-	cool_down = false
+	if ammo > 0:
+		var proj = projectile.instance()
+		owner.add_child(proj)
+		proj.setup(proj_type)
+		proj.position = Vector2(position.x + 50, position.y)
+		proj.linear_velocity = Vector2(projectile_speed + momentum.x, momentum.y )
+		cool_down = true
+		yield(get_tree().create_timer(0.5), "timeout")
+		cool_down = false
+		ammo -= 1
+	else:
+		print_debug("Empty")
