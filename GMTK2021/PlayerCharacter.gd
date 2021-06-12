@@ -7,7 +7,6 @@ export var projectile_speed = 1500
 export var acceleration = 1200
 export var friction = 600
 export var max_speed = 500
-export (PackedScene) var Projectile_Scene
 
 var health = 3
 var screen_size
@@ -15,6 +14,8 @@ var momentum = Vector2()
 
 var projectile = preload("res://Projectile.tscn")
 var cool_down = false #Cooldown from shooting
+
+onready var proj_type = $"/root/ProjectileTypes".attack_type.RED
 
 var invuln = false
 
@@ -99,7 +100,7 @@ func _on_InvulnTimer_timeout():
 func fire():
 	var proj = projectile.instance()
 	owner.add_child(proj)
-	proj.setup(0)
+	proj.setup(proj_type)
 	proj.position = Vector2(position.x + 50, position.y)
 	proj.linear_velocity = Vector2(projectile_speed + momentum.x, momentum.y )
 	cool_down = true

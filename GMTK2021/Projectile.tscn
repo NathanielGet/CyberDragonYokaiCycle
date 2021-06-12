@@ -8,12 +8,12 @@
 animations = [ {
 "frames": [ ExtResource( 1 ) ],
 "loop": true,
-"name": "default",
+"name": "0",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
-"name": "death",
+"name": "1",
 "speed": 5.0
 } ]
 
@@ -21,6 +21,7 @@ animations = [ {
 
 [node name="Projectile" type="RigidBody2D"]
 collision_mask = 0
+gravity_scale = 0.0
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
@@ -29,7 +30,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 1 )
-animation = "death"
+animation = "1"
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 

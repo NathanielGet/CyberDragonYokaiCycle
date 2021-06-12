@@ -1,8 +1,6 @@
 extends RigidBody2D
 
-enum proj_type{Red, Blue, Enemy}
-
-var type = proj_type.Red
+onready var type = $"/root/ProjectileTypes".attack_type.RED
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,7 +11,7 @@ func _ready():
 
 func setup(ptype : int):
 	type = ptype
-	$AnimatedSprite.play("default")
+	$AnimatedSprite.play("%d"%[type])
 
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
