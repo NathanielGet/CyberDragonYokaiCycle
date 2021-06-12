@@ -27,6 +27,9 @@ func _process(_delta):
 			if self.points.size() > 2:
 				remove_point(1)
 		elif Input.is_action_pressed("click") and mouseOver == true:
+			if validConnection:
+				spinInner()
+				validConnection = false
 			visitedNodes[0] = lastNodeEntered
 			if lastNodeEntered.nodeRing == "center":
 				lineStarted = true
@@ -50,7 +53,6 @@ func _process(_delta):
 		elif Input.is_action_pressed("click") and mouseOver == true:
 			if visitedNodes[1] == lastNodeEntered:
 				lineStarted = true
-				validConnection = false
 			elif visitedNodes[0] == lastNodeEntered:
 				connectionStage = 1
 			
@@ -96,6 +98,7 @@ func checkConnection():
 			add_point(visitedNodes[1].position)
 			add_point(visitedNodes[2].position)
 			connectionStage = 1
+			validConnection = true
 		else:
 			remove_point(2)
 
@@ -109,3 +112,12 @@ func spinOuter():
 	for i in range(0, outerNodes.size()):
 		outerNodes[i].position = nodePositions[i]
 
+func spinInner():
+	var innerNodes = get_tree().get_nodes_in_group("innerNodes")
+	var nodePositions = []
+	for i in range(0, innerNodes.size()):
+		nodePositions.append(innerNodes[i].position)
+	randomize()
+	nodePositions.shuffle()
+	for i in range(0, innerNodes.size()):
+		innerNodes[i].position = nodePositions[i]
