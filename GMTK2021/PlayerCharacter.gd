@@ -3,13 +3,18 @@ extends Area2D
 signal update_health(health)
 signal death
 
+export var projectile_speed = 1500
 export var acceleration = 1200
 export var friction = 600
 export var max_speed = 500
+export (PackedScene) var Projectile_Scene
 
 var health = 3
 var screen_size
 var momentum = Vector2()
+
+var projectile = preload("res://Projectile.tscn")
+var cool_down = false #Cooldown from shooting
 
 var invuln = false
 
@@ -20,6 +25,9 @@ func _ready():
 
 func _process(delta):
 	var velocity = Vector2()
+	if Input.is_action_pressed("fire"):
+		if(!cool_down):
+			fire()
 	if Input.is_action_pressed("move_right"):
 		velocity.x += 1
 	if Input.is_action_pressed("move_left"):
@@ -31,6 +39,8 @@ func _process(delta):
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * acceleration * delta
 		momentum += velocity
+	elif momentum.length() < 10:
+		momentum = Vector2()
 		
 	momentum -= momentum.normalized() * friction * delta
 	momentum = momentum.clamped(max_speed)
@@ -47,6 +57,7 @@ func _process(delta):
 
 func _on_PlayerCharacter_body_entered(_body):
 	# If we are invulnerable, do nothing
+	print_debug("Here")
 	if invuln:
 		return
 	
@@ -83,3 +94,14 @@ func _on_InvulnTimer_timeout():
 	invuln = false
 	
 	#Potentially change animation state here?
+
+
+func fire():
+	var proj = projectile.instance()
+	owner.add_child(proj)
+	proj.setup(0)
+	proj.position = Vector2(position.x + 50, position.y)
+	proj.linear_velocity = Vector2(projectile_speed + momentum.x, momentum.y )
+	cool_down = true
+	yield(get_tree().create_timer(0.5), "timeout")
+	cool_down = false
