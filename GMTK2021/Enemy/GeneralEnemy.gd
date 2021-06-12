@@ -1,47 +1,53 @@
-extends Area2D
+extends KinematicBody2D
 
 signal update_score(score)
 
 export var projectile_speed = 1500
-export var acceleration = 1200
-export var friction = 600
-export var max_speed = 500
-export (PackedScene) var Projectile_Scene
+export var default_speed = 80
+export var max_speed = 400
 
 export var health = 3
 export var score = 1000
 var screen_size
-var momentum = Vector2()
+
+var b_is_moving = false
+var velocity = Vector2()
+var progress = 0
+var cur_spd = 40
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_viewport_rect().size #TODO update this to play area
+	$Area2D.connect("body_entered", self, "_on_Area2D_body_entered")
 
 
 func _process(delta):
-	var velocity = Vector2()
-	
-#	velocity.x -= 0.5
+	pass
 
-	if velocity.length() > 0:
-		velocity = velocity.normalized() * acceleration * delta
-		momentum += velocity
-	elif momentum.length() < 10:
-		momentum = Vector2()
+func _physics_process(delta):
+	if !b_is_moving:
+		return
+	
+	if cur_spd < max_speed:
+		cur_spd += 5
 		
-	momentum -= momentum.normalized() * friction * delta
-	momentum = momentum.clamped(max_speed)
+	var target = get_parent().curve.interpolate_baked(cur_spd * delta + progress)
 	
-	position += momentum * delta
+	if cur_spd > (target-position).length():
+		velocity = (target-position) * 4
+	else:
+		velocity = (target-position).normalized() * cur_spd
+		
+	velocity = move_and_slide(velocity)
+	progress += cur_spd * delta
 	
-	#TODO change these to the play area, not the screen size
-#	position.x = clamp(position.x, 0, screen_size.x)
-#	position.y = clamp(position.y, 0, screen_size.y)
-	
-	# Add animation stuffs here
+	if (target-position).length() < 1:
+		b_is_moving = false
+		print_debug("here")
 
-func _on_EnemyCharacter_body_entered(_body):
+func _on_Area2D_body_entered(_body):
 	#Apply the damage, and alert UI
+	print_debug("here")
 	health -= 1
 #	emit_signal("update_health", health)
 	
@@ -67,5 +73,8 @@ func _on_EnemyCharacter_body_entered(_body):
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
 
-
+func move():
+	b_is_moving = true
+	cur_spd = default_speed
+	progress = 0
 

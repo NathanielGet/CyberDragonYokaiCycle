@@ -60,7 +60,7 @@ func _process(delta):
 
 func _on_PlayerCharacter_body_entered(_body):
 	# If we are invulnerable, do nothing
-	print_debug("Here")
+	#print_debug("Here")
 	if invuln:
 		return
 	
