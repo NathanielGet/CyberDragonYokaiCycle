@@ -42,6 +42,7 @@ func _process(_delta):
 				get_tree().call_group("innerNodes", "activate")
 				validConnection = false
 				newWire = false
+				clear_points()
 			
 			# Regardless, add the node we just hovered over to visitedNodes
 			visitedNodes[0] = lastNodeEntered
@@ -89,13 +90,12 @@ func _process(_delta):
 	if Input.is_action_just_released("click"):
 		lineStarted = false
 		connectionStage = 1
+		newWire = true
 		
 		if !validConnection:
 			get_tree().call_group("outerNodes", "deactivate")
 			get_tree().call_group("innerNodes", "activate")
 			clear_points()
-		else:
-			newWire = true
 
 # Socket function for signal when mouse hovers over port
 func entered(node):
