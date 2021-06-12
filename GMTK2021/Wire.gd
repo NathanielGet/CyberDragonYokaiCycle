@@ -11,7 +11,7 @@ var connectionStage = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	clear_points()
 
 
 func _process(delta):
@@ -73,7 +73,7 @@ func exited():
 
 func checkConnection():
 	if connectionStage == 1:
-		if visitedNodes[0].nodeColor == "white" and visitedNodes[1].nodeColor != "white":
+		if visitedNodes[0].nodeRing == "center" and visitedNodes[1].nodeRing == "inner":
 			clear_points()
 			#GET COORDS FOR PORTS
 			add_point(visitedNodes[0].position)
@@ -82,7 +82,7 @@ func checkConnection():
 		else:
 			clear_points()
 	elif connectionStage == 2:
-		if visitedNodes[2].nodeColor == "green2":
+		if visitedNodes[2].nodeRing == "outer":
 			clear_points()
 			#GET COORDS FOR PORTS
 			add_point(visitedNodes[0].position)

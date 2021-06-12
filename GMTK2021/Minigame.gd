@@ -7,8 +7,13 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-#	global_position = get_global_mouse_position()
-	pass
+	get_node("Background").play()
+	get_node("redPort/Sprite").play()
+	get_node("bluePort/Sprite").play()
+	get_node("greenPort/Sprite").play()
+	get_node("redPort2/Sprite").play()
+	get_node("bluePort2/Sprite").play()
+	get_node("greenPort2/Sprite").play()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -6,6 +6,7 @@ extends Area2D
 # var b = "text"
 signal port_hovered(port)
 export var nodeColor = "default"
+export var nodeRing = "inner"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
