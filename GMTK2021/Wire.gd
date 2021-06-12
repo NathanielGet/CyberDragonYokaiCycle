@@ -50,11 +50,11 @@ func exited():
 	#print("Exited")
 
 func checkConnection():
-	if visitedNodes[0] == "white" and visitedNodes[1] != "white":
+	if visitedNodes[0].nodeColor == "white" and visitedNodes[1].nodeColor != "white":
 		validConnection = true
 		clear_points()
 		#GET COORDS FOR PORTS
-		add_point(Vector2(720, 416))
-		add_point(Vector2(100, 100))
+		add_point(visitedNodes[0].position)
+		add_point(visitedNodes[1].position)
 	else:
 		clear_points()

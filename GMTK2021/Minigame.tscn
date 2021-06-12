@@ -197,7 +197,7 @@ radius = 8.0
 script = ExtResource( 3 )
 
 [node name="whitePort" type="Area2D" parent="."]
-position = Vector2( 720, 416 )
+position = Vector2( 728, 384 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
@@ -207,7 +207,7 @@ nodeColor = "white"
 [node name="Sprite" type="AnimatedSprite" parent="whitePort"]
 scale = Vector2( 2.5, 2.5 )
 frames = SubResource( 8 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="whitePort"]
@@ -215,7 +215,7 @@ scale = Vector2( 10, 10 )
 shape = SubResource( 9 )
 
 [node name="redPort" type="Area2D" parent="."]
-position = Vector2( 1024, 552 )
+position = Vector2( 992, 608 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
@@ -223,14 +223,12 @@ __meta__ = {
 nodeColor = "red"
 
 [node name="Sprite" type="AnimatedSprite" parent="redPort"]
-position = Vector2( -48, 48 )
 scale = Vector2( 2.5, 2.5 )
 frames = SubResource( 17 )
-frame = 2
+frame = 5
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="redPort"]
-position = Vector2( -48, 48 )
 scale = Vector2( 10, 10 )
 shape = SubResource( 18 )
 
@@ -244,7 +242,7 @@ __meta__ = {
 [node name="Sprite" type="AnimatedSprite" parent="bluePort"]
 scale = Vector2( 2.5, 2.5 )
 frames = SubResource( 26 )
-frame = 2
+frame = 5
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bluePort"]
@@ -262,7 +260,6 @@ nodeColor = "green"
 [node name="Sprite" type="AnimatedSprite" parent="greenPort"]
 scale = Vector2( 2.5, 2.5 )
 frames = SubResource( 35 )
-frame = 4
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="greenPort"]
@@ -270,6 +267,7 @@ scale = Vector2( 10, 10 )
 shape = SubResource( 36 )
 
 [node name="Line2D" type="Line2D" parent="."]
+z_index = -1
 width = 50.0
 default_color = Color( 0.4, 0.501961, 1, 1 )
 texture = ExtResource( 1 )

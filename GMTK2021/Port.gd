@@ -16,4 +16,4 @@ func _ready():
 
 
 func send_port():
-	emit_signal("port_hovered", nodeColor)
+	emit_signal("port_hovered", self)
