@@ -16,7 +16,7 @@ func _ready():
 	
 
 
-func _process(delta):
+func _process(_delta):
 	#print(mouseOver)
 	if connectionStage == 1:
 		
@@ -27,8 +27,9 @@ func _process(delta):
 			if self.points.size() > 2:
 				remove_point(1)
 		elif Input.is_action_pressed("click") and mouseOver == true:
-			lineStarted = true
 			visitedNodes[0] = lastNodeEntered
+			if lastNodeEntered.nodeRing == "center":
+				lineStarted = true
 			
 			#while get_point_count() > length:
 			#	remove_point(0)
@@ -46,11 +47,12 @@ func _process(delta):
 			add_point(get_global_mouse_position() / scaleOffset)
 			if self.points.size() > 3:
 				remove_point(2)
-		elif Input.is_action_pressed("click") and mouseOver == true and visitedNodes[1] == lastNodeEntered:
-			
-			
-			lineStarted = true
-			validConnection = false
+		elif Input.is_action_pressed("click") and mouseOver == true:
+			if visitedNodes[1] == lastNodeEntered:
+				lineStarted = true
+				validConnection = false
+			elif visitedNodes[0] == lastNodeEntered:
+				connectionStage = 1
 			
 			#while get_point_count() > length:
 			#	remove_point(0)
@@ -65,8 +67,8 @@ func _process(delta):
 		
 		
 		
-func entered(nodeColor):
-	lastNodeEntered = nodeColor
+func entered(node):
+	lastNodeEntered = node
 	mouseOver = true
 	#print(port)
 	#print("Moused Over")
