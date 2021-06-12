@@ -9,7 +9,7 @@ var lastNodeEntered
 var validConnection = false
 var connectionStage = 1
 var scaleOffset
-var newWire = false
+var newWire = true
 
 signal load_ammo(ammo_type)
 
@@ -34,7 +34,7 @@ func _process(_delta):
 				remove_point(1)
 		
 		# If the line hasn't been drawn, check for mouse click on a node
-		elif Input.is_action_pressed("click") and mouseOver == true:
+		elif Input.is_action_pressed("click") and mouseOver == true and newWire:
 			# If we're breaking a connection, shuffle the inner ring ports
 			if validConnection and newWire:
 				spinInner()
@@ -83,6 +83,7 @@ func _process(_delta):
 		if lineStarted and validConnection:
 			# Stop drawing line
 			lineStarted = false
+			newWire = false
 		
 
 	if Input.is_action_just_released("click"):
@@ -149,9 +150,13 @@ func checkConnection():
 			get_tree().call_group_flags(2, "outerNodes", "deactivate")
 			visitedNodes[2].activate()
 			emit_signal("load_ammo", visitedNodes[1].nodeColor)
-#		else:
-#			# If not a valid connection, erase the last point
-#			remove_point(2)
+		elif visitedNodes[2].nodeRing != "inner":
+			# If not a valid connection, erase the last point
+			clear_points()
+			connectionStage = 1
+			lineStarted = false
+			get_tree().call_group("outerNodes", "deactivate")
+			get_tree().call_group("innerNodes", "activate")
 
 # Shuffles positions of outer ports
 func spinOuter():
