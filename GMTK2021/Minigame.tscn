@@ -380,7 +380,7 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
-nodeColor = "green2"
+nodeColor = "green"
 nodeRing = "outer"
 
 [node name="Sprite" type="AnimatedSprite" parent="greenPort2"]
