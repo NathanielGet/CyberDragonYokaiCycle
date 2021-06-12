@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/WIRE_SCALED.png-39abd08543a674937823d9b2952e2481.stex"
+path="res://.import/Slot_BLUE_SCALED.png-ec341ca5e723f8be989c26d2683e4ae8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/WIRE_SCALED.png"
-dest_files=[ "res://.import/WIRE_SCALED.png-39abd08543a674937823d9b2952e2481.stex" ]
+source_file="res://Minigame/Sprites/Slot_BLUE_SCALED.png"
+dest_files=[ "res://.import/Slot_BLUE_SCALED.png-ec341ca5e723f8be989c26d2683e4ae8.stex" ]
 
 [params]
 

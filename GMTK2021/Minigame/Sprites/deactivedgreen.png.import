@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Minigame_UI_SCALED.png-563cda41c2e87a45a0bc3c58abd3ecc9.stex"
+path="res://.import/deactivedgreen.png-124ea48dfd5eb661f1b2ca179a7de69f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Minigame_UI_SCALED.png"
-dest_files=[ "res://.import/Minigame_UI_SCALED.png-563cda41c2e87a45a0bc3c58abd3ecc9.stex" ]
+source_file="res://Minigame/Sprites/deactivedgreen.png"
+dest_files=[ "res://.import/deactivedgreen.png-124ea48dfd5eb661f1b2ca179a7de69f.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Slot_RED_SCALED.png-00943ddf92a49d5482562d80689d1762.stex"
+path="res://.import/Minigame_UI_V2_SCALED.png-c6e86b755d28be9af0b27bf5788dc336.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Slot_RED_SCALED.png"
-dest_files=[ "res://.import/Slot_RED_SCALED.png-00943ddf92a49d5482562d80689d1762.stex" ]
+source_file="res://Minigame/Sprites/Minigame_UI_V2_SCALED.png"
+dest_files=[ "res://.import/Minigame_UI_V2_SCALED.png-c6e86b755d28be9af0b27bf5788dc336.stex" ]
 
 [params]
 

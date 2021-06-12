@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/deactivedred.png-1a882fc67a2b011c53aed1cff06fb7f2.stex"
+path="res://.import/WIRE_SCALED.png-0f17af865cb444321a904085702b0663.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/deactivedred.png"
-dest_files=[ "res://.import/deactivedred.png-1a882fc67a2b011c53aed1cff06fb7f2.stex" ]
+source_file="res://Minigame/Sprites/WIRE_SCALED.png"
+dest_files=[ "res://.import/WIRE_SCALED.png-0f17af865cb444321a904085702b0663.stex" ]
 
 [params]
 

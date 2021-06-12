@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/deactivedblue.png-493f8dc838783226e021994804983da5.stex"
+path="res://.import/Slot_GREEN_SCALED.png-4b17637faa8d5fbb5346f4e6831ada27.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/deactivedblue.png"
-dest_files=[ "res://.import/deactivedblue.png-493f8dc838783226e021994804983da5.stex" ]
+source_file="res://Minigame/Sprites/Slot_GREEN_SCALED.png"
+dest_files=[ "res://.import/Slot_GREEN_SCALED.png-4b17637faa8d5fbb5346f4e6831ada27.stex" ]
 
 [params]
 
