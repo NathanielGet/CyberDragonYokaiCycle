@@ -30,7 +30,7 @@ func _process(delta):
 		clear_points()
 		if mouseOver == true:
 			visitedNodes[1] = lastNodeEntered
-			#print(visitedNodes)
+			print(visitedNodes)
 	
 		
 func entered(nodeColor):

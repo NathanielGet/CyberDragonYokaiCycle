@@ -6,41 +6,82 @@
 [ext_resource path="res://Wire.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 12.8, 12.8 )
+extents = Vector2( 8, 8 )
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 3 )
 
-[node name="Port1" type="Area2D" parent="."]
-position = Vector2( 368, 360 )
+[node name="whitePort" type="Area2D" parent="."]
+modulate = Color( 100, 100, 100, 1 )
+position = Vector2( 768, 328 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
+nodeColor = "white"
 
-[node name="Sprite" type="Sprite" parent="Port1"]
-position = Vector2( 3.05176e-05, 1.52588e-05 )
-scale = Vector2( 4, 4 )
+[node name="Sprite" type="Sprite" parent="whitePort"]
+position = Vector2( -48, 48 )
+scale = Vector2( 2.5, 2.5 )
 texture = ExtResource( 1 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Port1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="whitePort"]
+position = Vector2( -48, 48 )
 scale = Vector2( 10, 10 )
 shape = SubResource( 1 )
 
-[node name="Port2" type="Area2D" parent="."]
-position = Vector2( 1040, 360 )
+[node name="redPort" type="Area2D" parent="."]
+modulate = Color( 1, 0.0196078, 0, 1 )
+position = Vector2( 1024, 544 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
 nodeColor = "red"
 
-[node name="Sprite" type="Sprite" parent="Port2"]
-position = Vector2( 3.05176e-05, 1.52588e-05 )
-scale = Vector2( 4, 4 )
+[node name="Sprite" type="Sprite" parent="redPort"]
+position = Vector2( -48, 48 )
+scale = Vector2( 2.5, 2.5 )
 texture = ExtResource( 1 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Port2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="redPort"]
+position = Vector2( -48, 48 )
+scale = Vector2( 10, 10 )
+shape = SubResource( 1 )
+
+[node name="bluePort" type="Area2D" parent="."]
+position = Vector2( 496, 544 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="bluePort"]
+position = Vector2( -48, 48 )
+scale = Vector2( 2.5, 2.5 )
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bluePort"]
+position = Vector2( -48, 48 )
+scale = Vector2( 10, 10 )
+shape = SubResource( 1 )
+
+[node name="greenPort" type="Area2D" parent="."]
+modulate = Color( 0, 1, 0.133333, 1 )
+position = Vector2( 768, 56 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+nodeColor = "green"
+
+[node name="Sprite" type="Sprite" parent="greenPort"]
+position = Vector2( -48, 48 )
+scale = Vector2( 2.5, 2.5 )
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="greenPort"]
+position = Vector2( -48, 48 )
 scale = Vector2( 10, 10 )
 shape = SubResource( 1 )
 
