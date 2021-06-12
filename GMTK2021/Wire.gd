@@ -85,6 +85,7 @@ func checkConnection():
 			add_point(visitedNodes[0].position)
 			add_point(visitedNodes[1].position)
 			connectionStage = 2
+			spinOuter()
 		else:
 			clear_points()
 	elif connectionStage == 2:
@@ -97,3 +98,14 @@ func checkConnection():
 			connectionStage = 1
 		else:
 			remove_point(2)
+
+func spinOuter():
+	var outerNodes = get_tree().get_nodes_in_group("outerNodes")
+	var nodePositions = []
+	for i in range(0, outerNodes.size()):
+		nodePositions.append(outerNodes[i].position)
+	randomize()
+	nodePositions.shuffle()
+	for i in range(0, outerNodes.size()):
+		outerNodes[i].position = nodePositions[i]
+
