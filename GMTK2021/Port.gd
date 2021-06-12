@@ -5,13 +5,13 @@ extends Area2D
 # var a = 2
 # var b = "text"
 signal port_hovered(port)
-export var nodeColor = "blue"
+export var nodeColor = "default"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	connect("mouse_entered", self, "send_port")
-	connect("mouse_exited", get_node("../Line2D"), "exited")
-	connect("port_hovered", get_node("../Line2D"), "entered")
+	connect("mouse_exited", get_node("../Wire"), "exited")
+	connect("port_hovered", get_node("../Wire"), "entered")
 
 
 
