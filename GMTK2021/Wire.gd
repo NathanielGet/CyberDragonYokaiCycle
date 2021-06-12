@@ -16,6 +16,8 @@ func _process(delta):
 	#print(mouseOver)
 	if lineStarted:
 		add_point(get_global_mouse_position())
+		if self.points.size() > 2:
+			remove_point(1)
 	elif Input.is_action_pressed("click") and mouseOver == true:
 		lineStarted = true
 		visitedNodes[0] = lastNodeEntered
