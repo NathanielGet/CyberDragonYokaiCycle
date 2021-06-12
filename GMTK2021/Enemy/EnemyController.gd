@@ -1,7 +1,7 @@
 extends Node
 signal move(target_enemy)
 
-onready var enemy_type = preload("res://Enemy/Enemy.tscn")
+onready var enemy_type = preload("res://Enemy/GeneralEnemy.tscn")
 var homes = []
 
 # Called when the node enters the scene tree for the first time.
