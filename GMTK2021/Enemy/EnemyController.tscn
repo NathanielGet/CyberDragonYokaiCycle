@@ -1,0 +1,92 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Enemy/EnemyController.gd" type="Script" id=1]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array(  )
+}
+
+[node name="EnemyController" type="Node"]
+script = ExtResource( 1 )
+
+[node name="MoveTimer" type="Timer" parent="."]
+
+[node name="Paths" type="Node" parent="."]
+
+[node name="Path_1" type="Path2D" parent="Paths" groups=[
+"path",
+]]
+curve = SubResource( 1 )
+
+[node name="Path_2" type="Path2D" parent="Paths" groups=[
+"path",
+]]
+curve = SubResource( 1 )
+
+[node name="Path_3" type="Path2D" parent="Paths" groups=[
+"path",
+]]
+curve = SubResource( 1 )
+
+[node name="Path_4" type="Path2D" parent="Paths" groups=[
+"path",
+]]
+curve = SubResource( 1 )
+
+[node name="Path_5" type="Path2D" parent="Paths" groups=[
+"path",
+]]
+curve = SubResource( 1 )
+
+[node name="Path_6" type="Path2D" parent="Paths" groups=[
+"path",
+]]
+curve = SubResource( 1 )
+
+[node name="Path_7" type="Path2D" parent="Paths" groups=[
+"path",
+]]
+curve = SubResource( 1 )
+
+[node name="Points" type="Node" parent="."]
+
+[node name="Point_0" type="Node2D" parent="Points" groups=[
+"HomePoint",
+]]
+position = Vector2( 950, 45 )
+
+[node name="Point_1" type="Node2D" parent="Points" groups=[
+"HomePoint",
+]]
+position = Vector2( 950, 135 )
+
+[node name="Point_2" type="Node2D" parent="Points" groups=[
+"HomePoint",
+]]
+position = Vector2( 950, 225 )
+
+[node name="Point_3" type="Node2D" parent="Points" groups=[
+"HomePoint",
+]]
+position = Vector2( 950, 315 )
+
+[node name="Point_4" type="Node2D" parent="Points" groups=[
+"HomePoint",
+]]
+position = Vector2( 950, 405 )
+
+[node name="Point_5" type="Node2D" parent="Points" groups=[
+"HomePoint",
+]]
+position = Vector2( 950, 495 )
+
+[node name="Point_6" type="Node2D" parent="Points" groups=[
+"HomePoint",
+]]
+position = Vector2( 950, 585 )
+
+[node name="Point_7" type="Node2D" parent="Points" groups=[
+"HomePoint",
+]]
+position = Vector2( 950, 675 )

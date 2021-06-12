@@ -12,7 +12,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 30.8221, 31.3818 )
+extents = Vector2( 32, 32 )
 
 [node name="PlayerCharacter" type="Area2D"]
 gravity_vec = Vector2( 0, 0 )
