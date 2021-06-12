@@ -82,7 +82,7 @@ func checkConnection():
 		else:
 			clear_points()
 	elif connectionStage == 2:
-		if visitedNodes[2].nodeRing == "outer":
+		if visitedNodes[2].nodeRing == "outer" and visitedNodes[1].nodeColor == visitedNodes[2].nodeColor:
 			clear_points()
 			#GET COORDS FOR PORTS
 			add_point(visitedNodes[0].position)

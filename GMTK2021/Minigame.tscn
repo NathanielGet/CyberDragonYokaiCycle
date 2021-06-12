@@ -1,6 +1,5 @@
-[gd_scene load_steps=63 format=2]
+[gd_scene load_steps=62 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://Port.gd" type="Script" id=2]
 [ext_resource path="res://Minigame.gd" type="Script" id=3]
 [ext_resource path="res://Wire.gd" type="Script" id=4]
@@ -380,7 +379,7 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
-nodeColor = "green2"
+nodeColor = "green"
 nodeRing = "outer"
 
 [node name="Sprite" type="AnimatedSprite" parent="greenPort2"]
@@ -410,9 +409,7 @@ shape = SubResource( 44 )
 
 [node name="Wire" type="Line2D" parent="."]
 z_index = -1
-points = PoolVector2Array( 496, 528 )
 width = 50.0
-default_color = Color( 0.4, 0.501961, 1, 1 )
-texture = ExtResource( 1 )
+default_color = Color( 1, 1, 1, 1 )
 texture_mode = 2
 script = ExtResource( 4 )
