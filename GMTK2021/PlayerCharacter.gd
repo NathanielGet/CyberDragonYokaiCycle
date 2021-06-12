@@ -96,7 +96,7 @@ func _on_InvulnTimer_timeout():
 	
 	#Potentially change animation state here?
 
-
+# Spawn and fire a projectile
 func fire():
 	var proj = projectile.instance()
 	owner.add_child(proj)
