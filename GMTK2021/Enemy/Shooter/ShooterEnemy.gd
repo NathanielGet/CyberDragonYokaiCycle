@@ -5,20 +5,13 @@ export var fire_rate = 60
 var counter = 0
 
 func _ready():
-	._ready()
 	health = 2
 
 func _process(delta):
-	._process(delta)
-	
 	if counter % fire_rate == 0:
 		fire()
 		counter = 0
 	counter += 1
-	
-func _on_EnemyCharacter_body_entered(_body):
-	._on_EnemyCharacter_body_entered(_body)
-	print_debug("Test Shooter")
 
 func fire():
 	var proj = projectile.instance()

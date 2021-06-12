@@ -20,10 +20,6 @@ func _ready():
 	screen_size = get_viewport_rect().size #TODO update this to play area
 	$Area2D.connect("body_entered", self, "_on_Area2D_body_entered")
 
-
-func _process(delta):
-	pass
-
 func _physics_process(delta):
 	if !b_is_moving:
 		return
