@@ -389,32 +389,26 @@ animations = [ {
 } ]
 
 [sub_resource type="AtlasTexture" id=75]
-flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 0, 0, 256, 64 )
 
 [sub_resource type="AtlasTexture" id=76]
-flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 256, 0, 256, 64 )
 
 [sub_resource type="AtlasTexture" id=77]
-flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 512, 0, 256, 64 )
 
 [sub_resource type="AtlasTexture" id=78]
-flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 768, 0, 256, 64 )
 
 [sub_resource type="AtlasTexture" id=79]
-flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 1024, 0, 256, 64 )
 
 [sub_resource type="AtlasTexture" id=80]
-flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 1280, 0, 256, 64 )
 
@@ -423,7 +417,7 @@ animations = [ {
 "frames": [ SubResource( 75 ), SubResource( 76 ), SubResource( 77 ), SubResource( 78 ), SubResource( 79 ), SubResource( 80 ) ],
 "loop": true,
 "name": "default",
-"speed": 14.0
+"speed": 7.0
 } ]
 
 [sub_resource type="DynamicFont" id=82]
@@ -474,7 +468,8 @@ texture = ExtResource( 5 )
 position = Vector2( 760, 361.335 )
 scale = Vector2( 5, 5 )
 frames = SubResource( 81 )
-frame = 2
+frame = 4
+playing = true
 
 [node name="Play" type="Button" parent="."]
 margin_left = 448.0
