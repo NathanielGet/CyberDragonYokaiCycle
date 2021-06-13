@@ -97,6 +97,9 @@ func _on_PlayerCharacter_body_entered(body):
 		$InvulnTimer.start()
 		invuln = true
 		
+		# Gray out when invincible
+		$AnimatedSprite.modulate = Color(0.18, 0.31, 0.31);
+		
 		# Play hurt sound
 		#TODO
 		
@@ -105,6 +108,8 @@ func _on_PlayerCharacter_body_entered(body):
 		
 func _on_InvulnTimer_timeout():
 	invuln = false
+	# Return back to original color
+	$AnimatedSprite.modulate = Color(1,1,1);
 	
 	#Potentially change animation state here?
 
