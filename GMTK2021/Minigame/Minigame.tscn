@@ -645,9 +645,8 @@ default_color = Color( 1, 1, 1, 1 )
 texture_mode = 2
 script = ExtResource( 1 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 2528.78, 1084.15 )
-scale = Vector2( 3.64452, 3.64452 )
+[node name="JammerOverlay" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 2528, 1088 )
+scale = Vector2( 3.66667, 3.66667 )
 frames = SubResource( 168 )
-frame = 8
-playing = true
