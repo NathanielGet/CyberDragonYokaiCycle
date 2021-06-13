@@ -124,10 +124,10 @@ func fire():
 func reload(ammo_type):
 	match ammo_type:
 		"red":
-			pass
+			proj_type = $"/root/ProjectileTypes".attack_type.RED
 		"blue":
-			pass
+			proj_type = $"/root/ProjectileTypes".attack_type.BLUE
 		"green":
-			pass
+			proj_type = $"/root/ProjectileTypes".attack_type.GREEN
 	
 	ammo = MAX_AMMO
