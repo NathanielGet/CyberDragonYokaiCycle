@@ -34,6 +34,7 @@ func _ready():
 	connect("update_health", get_node("../HUD"), "displayHealth")
 	connect("update_ammo", get_node("../HUD"), "displayAmmo")
 	connect("death", get_node(".."), "game_over")
+	connect("death", get_node("../EnemyController"), "clear_enemies")
 
 
 func _process(delta):

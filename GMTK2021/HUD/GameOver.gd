@@ -7,10 +7,9 @@ extends Node2D
 
 signal new_game
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	connect("new_game", get_node(".."), "restart")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -19,5 +18,5 @@ func _ready():
 
 
 func _on_Button_pressed():
-	emit_signal("newGame")
+	emit_signal("new_game")
 	queue_free()
