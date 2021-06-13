@@ -8,8 +8,10 @@ export var acceleration = 1200
 export var friction = 600
 export var max_speed = 500
 
+const MAX_AMMO = 5
+
 export var health = 3
-export var ammo = 10
+export var ammo = MAX_AMMO
 
 var screen_size
 var momentum = Vector2()
@@ -126,4 +128,4 @@ func reload(ammo_type):
 		"green":
 			pass
 	
-	ammo = 10
+	ammo = MAX_AMMO
