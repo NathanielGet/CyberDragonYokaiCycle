@@ -58,6 +58,8 @@ func _on_Area2D_body_entered(body):
 		die()
 		# Send death signal
 		emit_signal("update_score", score, self)
+	else:
+		$DamageAnim.play("DamageFlash")
 
 func move():
 	b_is_moving = true
