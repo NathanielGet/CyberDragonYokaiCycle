@@ -2,6 +2,8 @@ extends Area2D
 
 signal update_health(health)
 signal death
+signal ammo_empty()
+signal update_ammo(ammo, type)
 
 export var projectile_speed = 1500
 export var acceleration = 1200
@@ -19,8 +21,6 @@ var momentum = Vector2()
 var projectile = preload("res://Projectile/PlayerProjectile.tscn")
 var cool_down = false #Cooldown from shooting
 
-signal ammo_empty()
-
 onready var proj_type = $"/root/ProjectileTypes".attack_type.GREEN
 
 var invuln = false
@@ -30,6 +30,7 @@ func _ready():
 	#screen_size = get_viewport_rect().size #TODO update this to play area
 	connect("ammo_empty", get_node("../Minigame/Wire"), "resetPanel")
 	connect("update_health", get_node("../HUD"), "displayHealth")
+	connect("update_ammo", get_node("../HUD"), "displayAmmo")
 
 
 func _process(delta):
@@ -119,6 +120,7 @@ func fire():
 		yield(get_tree().create_timer(0.5), "timeout")
 		cool_down = false
 		ammo -= 1
+		emit_signal("update_ammo", ammo, proj_type)
 	else:
 		emit_signal("ammo_empty")
 		print_debug("Empty")
@@ -133,3 +135,4 @@ func reload(ammo_type):
 			pass
 	
 	ammo = MAX_AMMO
+	emit_signal("update_ammo", ammo, proj_type)
