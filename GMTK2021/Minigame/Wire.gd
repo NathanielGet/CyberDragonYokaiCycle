@@ -38,8 +38,9 @@ func _process(_delta):
 			# If we're breaking a connection, shuffle the inner ring ports
 			if validConnection and newWire:
 				spinInner()
-				get_tree().call_group("outerNodes", "deactivate")
-				get_tree().call_group("innerNodes", "activate")
+				get_tree().call_group_flags(2, "outerNodes", "deactivate")
+				get_tree().call_group_flags(2, "innerNodes", "activate")
+				get_tree().call_group_flags(2, "innerNodes", "sync_frame")
 				validConnection = false
 				newWire = false
 				clear_points()
@@ -93,8 +94,9 @@ func _process(_delta):
 		newWire = true
 		
 		if !validConnection:
-			get_tree().call_group("outerNodes", "deactivate")
-			get_tree().call_group("innerNodes", "activate")
+			get_tree().call_group_flags(2, "outerNodes", "deactivate")
+			get_tree().call_group_flags(2, "innerNodes", "activate")
+			get_tree().call_group_flags(2, "innerNodes", "sync_frame")
 			clear_points()
 
 # Socket function for signal when mouse hovers over port
@@ -125,14 +127,12 @@ func checkConnection():
 			
 			# Shuffle the outer ring ports
 			spinOuter()
-			get_tree().call_group("outerNodes", "activate")
+			get_tree().call_group_flags(2, "outerNodes", "activate")
 			get_tree().call_group_flags(2, "innerNodes", "deactivate")
 			visitedNodes[1].activate()
-
-
-#		else:
-#			# If not a valid connection, erase the wire
-#			clear_points()
+			visitedNodes[1].sync_frame()
+			get_tree().call_group_flags(2, "outerNodes", "sync_frame")
+			
 			
 	elif connectionStage == 2:
 		# Check if the wire ends on an outer ring and that the colors match
@@ -149,14 +149,17 @@ func checkConnection():
 			validConnection = true
 			get_tree().call_group_flags(2, "outerNodes", "deactivate")
 			visitedNodes[2].activate()
+			visitedNodes[1].sync_frame()
+			visitedNodes[2].sync_frame()
 			emit_signal("load_ammo", visitedNodes[1].nodeColor)
 		elif visitedNodes[2].nodeRing != "inner":
 			# If not a valid connection, erase the last point
 			clear_points()
 			connectionStage = 1
 			lineStarted = false
-			get_tree().call_group("outerNodes", "deactivate")
-			get_tree().call_group("innerNodes", "activate")
+			get_tree().call_group_flags(2, "outerNodes", "deactivate")
+			get_tree().call_group_flags(2, "innerNodes", "activate")
+			get_tree().call_group_flags(2, "innerNodes", "sync_frame")
 
 # Shuffles positions of outer ports
 func spinOuter():
@@ -179,7 +182,6 @@ func spinInner():
 	nodePositions.shuffle()
 	for i in range(0, innerNodes.size()):
 		innerNodes[i].position = nodePositions[i]
-	
 
 # Test function for ammo signal
 func testAmmoSignal(ammo):
