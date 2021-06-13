@@ -47,14 +47,9 @@ func _physics_process(delta):
 func _on_Area2D_body_entered(body):
 	#Apply the damage, and alert UI
 	
-
-	# Destroy Player Projectiles
-	print_debug(body.name)
 	if(body.name.find("PlayerProjectile") != -1):
-		print_debug("HERE")
+		take_damage(body.type)
 		body.queue_free()
-		
-	health -= 1
 	
 	# Check if dead
 	if health < 1:
@@ -62,9 +57,6 @@ func _on_Area2D_body_entered(body):
 		die()
 		# Send death signal
 		emit_signal("update_score", score, self)
-
-	else:
-		return
 
 func move():
 	b_is_moving = true
@@ -76,3 +68,6 @@ func die():
 	$CollisionShape2D.disabled = true
 	$Area2D/CollisionShape2D.disabled = true
 	emit_signal("unjam")
+
+func take_damage(_type):
+	health -= 1

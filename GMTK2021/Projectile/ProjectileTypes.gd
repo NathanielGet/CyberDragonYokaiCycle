@@ -2,7 +2,7 @@ extends Node
 
 enum attack_type{
 	RED,
-	BLUE,
 	GREEN,
+	BLUE,
 	WHITE,
 }
