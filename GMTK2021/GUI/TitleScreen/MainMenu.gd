@@ -16,4 +16,4 @@ func _on_Play_pressed():
 
 func _on_Instructions_pressed():
 #	emit_signal("how_to_play")
-	get_tree().change_scene("res://GameScreen/GameScreen.tscn")
+	get_tree().change_scene("res://Instructions.tscn")
