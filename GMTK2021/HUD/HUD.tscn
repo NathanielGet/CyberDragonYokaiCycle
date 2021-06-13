@@ -230,5 +230,5 @@ animation = "green"
 position = Vector2( 176, 56 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 31 )
-frame = 1
+frame = 3
 playing = true

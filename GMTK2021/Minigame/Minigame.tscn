@@ -565,7 +565,7 @@ shape = SubResource( 68 )
 [node name="greenPort" type="Area2D" parent="." groups=[
 "innerNodes",
 ]]
-position = Vector2( 2522, 886 )
+position = Vector2( 2522, 890 )
 script = ExtResource( 12 )
 __meta__ = {
 "_edit_group_": true
