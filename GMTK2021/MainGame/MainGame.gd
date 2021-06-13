@@ -46,6 +46,11 @@ func create_wave(wait_time):
 	enemyArrays.append([JammerType, DummyType, ShooterType])
 	enemyArrays.append([ShooterType, DummyType, ShooterType])
 	enemyArrays.append([ShooterType, JammerType, ShooterType, DummyType, DummyType])
+	enemyArrays.append([ShooterType, ShooterType, ShooterType, JammerType, JammerType])
 	
-	$EnemyMovementTimer.set_wait_time(wait_time)
+	if(wave_count > 5):
+		wave_count = 5
+		wait_time = 1
+	
+	$EnemyMovementTimer.set_wait_time(wait_time)	
 	$EnemyController.spawn_wave(enemyArrays[wave_count])
