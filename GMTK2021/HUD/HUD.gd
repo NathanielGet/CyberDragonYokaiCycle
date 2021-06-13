@@ -27,6 +27,8 @@ func _ready():
 	lives0 = preload("res://assets/Lives0.png")
 	
 	lifeBar = $lifeBar
+	
+	ammo_sprite.set_animation("red")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
