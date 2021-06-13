@@ -13,7 +13,7 @@ export var max_speed = 500
 const MAX_AMMO = 5
 
 export var health = 3
-export var ammo = MAX_AMMO
+export var ammo = 0
 
 var screen_size
 var momentum = Vector2()
@@ -21,7 +21,7 @@ var momentum = Vector2()
 var projectile = preload("res://Projectile/PlayerProjectile.tscn")
 var cool_down = false #Cooldown from shooting
 
-onready var proj_type = $"/root/ProjectileTypes".attack_type.GREEN
+onready var proj_type = $"/root/ProjectileTypes".attack_type.RED
 
 var invuln = false
 
@@ -126,9 +126,11 @@ func fire():
 		cool_down = false
 		ammo -= 1
 		emit_signal("update_ammo", ammo, proj_type)
-	else:
-		emit_signal("ammo_empty")
-		print_debug("Empty")
+		if ammo == 0:
+			emit_signal("ammo_empty")			
+#	else:
+#		emit_signal("ammo_empty")
+#		print_debug("Empty")
 
 func reload(ammo_type):
 	match ammo_type:
