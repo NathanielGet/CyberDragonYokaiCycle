@@ -17,6 +17,8 @@ var momentum = Vector2()
 var projectile = preload("res://Projectile/Projectile.tscn")
 var cool_down = false #Cooldown from shooting
 
+signal ammo_empty()
+
 onready var proj_type = $"/root/ProjectileTypes".attack_type.GREEN
 
 var invuln = false
@@ -24,6 +26,7 @@ var invuln = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_viewport_rect().size #TODO update this to play area
+	connect("ammo_empty", get_node("../Minigame/Wire"), "resetPanel")
 
 
 func _process(delta):
@@ -111,4 +114,16 @@ func fire():
 		cool_down = false
 		ammo -= 1
 	else:
+		emit_signal("ammo_empty")
 		print_debug("Empty")
+
+func reload(ammo_type):
+	match ammo_type:
+		"red":
+			pass
+		"blue":
+			pass
+		"green":
+			pass
+	
+	ammo = 10

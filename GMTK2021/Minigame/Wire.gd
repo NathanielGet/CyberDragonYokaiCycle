@@ -10,6 +10,8 @@ var validConnection = false
 var connectionStage = 1
 var scaleOffset
 var newWire = true
+var clearConnections = false
+var reloadSignalReceived = false
 
 signal load_ammo(ammo_type)
 
@@ -17,7 +19,7 @@ signal load_ammo(ammo_type)
 func _ready():
 	clear_points()
 	scaleOffset = get_node("..").scale
-	connect("load_ammo", self, "testAmmoSignal")
+	connect("load_ammo", get_node("../../PlayerCharacter"), "reload")
 	get_tree().call_group("outerNodes", "deactivate")
 	
 
@@ -88,16 +90,23 @@ func _process(_delta):
 			newWire = false
 		
 
-	if Input.is_action_just_released("click"):
+	if Input.is_action_just_released("click") or clearConnections:
 		lineStarted = false
 		connectionStage = 1
 		newWire = true
 		
-		if !validConnection:
+		if !validConnection or clearConnections:
 			get_tree().call_group_flags(2, "outerNodes", "deactivate")
 			get_tree().call_group_flags(2, "innerNodes", "activate")
 			get_tree().call_group_flags(2, "innerNodes", "sync_frame")
 			clear_points()
+		
+		if clearConnections and !reloadSignalReceived:
+			validConnection = false
+			spinInner()
+			reloadSignalReceived = true
+			
+		clearConnections = false
 
 # Socket function for signal when mouse hovers over port
 func entered(node):
@@ -152,6 +161,7 @@ func checkConnection():
 			visitedNodes[1].sync_frame()
 			visitedNodes[2].sync_frame()
 			emit_signal("load_ammo", visitedNodes[1].nodeColor)
+			reloadSignalReceived = false
 		elif visitedNodes[2].nodeRing != "inner":
 			# If not a valid connection, erase the last point
 			clear_points()
@@ -186,3 +196,8 @@ func spinInner():
 # Test function for ammo signal
 func testAmmoSignal(ammo):
 	print("Loaded ammo type: ", ammo)
+	
+func resetPanel():
+	if(!reloadSignalReceived):
+		clearConnections = true
+#	print("Signal received")
