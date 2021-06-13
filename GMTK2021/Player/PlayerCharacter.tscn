@@ -1,10 +1,11 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Player/PlayerCharacter.gd" type="Script" id=1]
 [ext_resource path="res://assets/PENDY_scalded.png" type="Texture" id=2]
 [ext_resource path="res://assets/Click.wav" type="AudioStream" id=3]
 [ext_resource path="res://assets/Shot.wav" type="AudioStream" id=4]
 [ext_resource path="res://assets/Hit.wav" type="AudioStream" id=5]
+[ext_resource path="res://assets/PLAYER_DIE.wav" type="AudioStream" id=6]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -141,6 +142,7 @@ max_speed = 1000
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 17 )
 animation = "invincible"
+frame = 2
 playing = true
 
 [node name="Particles2D" type="Particles2D" parent="AnimatedSprite"]
@@ -168,5 +170,16 @@ volume_db = -13.126
 stream = ExtResource( 5 )
 volume_db = -9.087
 
+[node name="Dead" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = 3.0
+
+[node name="DeathTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="Vanish" type="Tween" parent="."]
+
 [connection signal="body_entered" from="." to="." method="_on_PlayerCharacter_body_entered"]
 [connection signal="timeout" from="InvulnTimer" to="." method="_on_InvulnTimer_timeout"]
+[connection signal="timeout" from="DeathTimer" to="." method="_on_DeathTimer_timeout"]
+[connection signal="tween_completed" from="Vanish" to="." method="_on_Vanish_tween_completed"]

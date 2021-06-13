@@ -80,7 +80,6 @@ func _on_PlayerCharacter_body_entered(body):
 		
 	#Apply the damage, and alert UI
 	health -= 1
-	$Hit.play()
 	emit_signal("update_health", health)
 	
 	# Check if dead
@@ -91,13 +90,16 @@ func _on_PlayerCharacter_body_entered(body):
 		# Send death signal
 		emit_signal("death")
 		
-		queue_free()
 		# Play death sound
-		#TODO
+		$Dead.play()
 		
 		# Call death function?
+#		$DeathTimer.start()
+		$Vanish.interpolate_property($AnimatedSprite, "modulate", Color(1, 1, 1, 1), Color(1, 1, 1, 0), 0.5, Tween.TRANS_LINEAR, Tween.EASE_IN)
+		$Vanish.start()
 		
 	else:
+		$Hit.play()
 		# Set a timer for invincibility and set invuln status
 		$InvulnTimer.start()
 		invuln = true
@@ -152,3 +154,11 @@ func reload(ammo_type):
 	ammo = MAX_AMMO
 	cool_down = false
 	emit_signal("update_ammo", ammo, proj_type)
+
+
+func _on_DeathTimer_timeout():
+	queue_free()
+
+
+func _on_Vanish_tween_completed(object, key):
+	queue_free()

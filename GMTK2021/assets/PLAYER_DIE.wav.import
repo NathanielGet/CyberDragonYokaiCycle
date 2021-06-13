@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/PLAYER_DIE.wav-48a7055075d3b0492577e8366e92eb46.sample"
+
+[deps]
+
+source_file="res://assets/PLAYER_DIE.wav"
+dest_files=[ "res://.import/PLAYER_DIE.wav-48a7055075d3b0492577e8366e92eb46.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
