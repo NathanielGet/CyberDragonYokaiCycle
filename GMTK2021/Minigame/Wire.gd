@@ -103,7 +103,7 @@ func _process(_delta):
 func entered(node):
 	lastNodeEntered = node
 	mouseOver = true
-	print(node.nodeColor, node.nodeRing)
+	#print(node.nodeColor, node.nodeRing)
 	#print("Moused Over")
 
 # Socket function for signal when mouse moves away from port
