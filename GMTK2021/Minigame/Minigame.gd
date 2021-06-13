@@ -19,8 +19,6 @@ func _ready():
 	get_node("greenPort2/Sprite").play()
 	
 	
-	get_node("JammerOverlay").show()
-	get_node("JammerOverlay").play()
 	connect("testSignal1", self, "activateJammer")
 	connect("testSignal2", self, "disableJammer")
 
