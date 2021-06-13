@@ -165,7 +165,7 @@ __meta__ = {
 position = Vector2( 429.242, 407.895 )
 scale = Vector2( 16.5339, 9.99701 )
 frames = SubResource( 46 )
-frame = 3
+frame = 2
 playing = true
 
 [node name="Menu" type="Button" parent="."]

@@ -6,6 +6,7 @@ var alive = true
 
 func _ready():
 	health = 3
+	score = 2500
 	connect("jam", get_node("../../../../Minigame"), "activateJammer")
 	connect("unjam", get_node("../../../../Minigame"), "disableJammer")
 	
