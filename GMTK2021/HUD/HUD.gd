@@ -9,6 +9,7 @@ var lives2
 var lives1
 var lives0
 var lifeBar
+var score = 0
 
 onready var AMMO_GREEN = $"/root/ProjectileTypes".attack_type.GREEN
 onready var AMMO_BLUE = $"/root/ProjectileTypes".attack_type.BLUE
@@ -16,6 +17,7 @@ onready var AMMO_RED = $"/root/ProjectileTypes".attack_type.RED
 
 onready var ammo_label = $AmmoCount
 onready var ammo_sprite = $AmmoType
+onready var score_label = $Score
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -52,3 +54,7 @@ func displayAmmo(ammo, type):
 			ammo_sprite.set_animation("red")
 	
 	ammo_label.text = str(ammo)
+
+func displayScore(score, enemy):
+	self.score += score
+	score_label.text = str(self.score).pad_zeros(9)
