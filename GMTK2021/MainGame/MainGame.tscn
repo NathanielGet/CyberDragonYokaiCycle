@@ -51,7 +51,4 @@ autoplay = true
 [node name="EnemyMovementTimer" type="Timer" parent="."]
 one_shot = true
 
-[node name="Node2D" type="Node2D" parent="."]
-position = Vector2( 0, 232 )
-
 [connection signal="timeout" from="EnemyMovementTimer" to="." method="_on_EnemyMovementTimer_timeout"]
