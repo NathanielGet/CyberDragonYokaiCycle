@@ -20,3 +20,7 @@ func _ready():
 func _on_Button_pressed():
 	emit_signal("new_game")
 	queue_free()
+
+
+func _on_Button2_pressed():
+	get_tree().change_scene("res://GUI/TitleScreen/MainMenu.tscn")

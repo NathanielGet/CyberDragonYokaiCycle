@@ -53,6 +53,7 @@ func _process(_delta):
 			# Make sure the starting point is the center port
 			if lastNodeEntered.nodeRing == "center":
 				lineStarted = true
+				$FirstConnect.play()
 		
 		# Check to see if connection should be formed when mouse is released
 		if lineStarted and mouseOver:
@@ -134,6 +135,8 @@ func checkConnection():
 			# Connection formed, advance to second-stage connection
 			connectionStage = 2
 			
+			$FirstConnect.play()
+			
 			# Shuffle the outer ring ports
 			spinOuter()
 			get_tree().call_group_flags(2, "outerNodes", "activate")
@@ -155,6 +158,9 @@ func checkConnection():
 			
 			# Connection complete, prep for reset to first stage on next click
 			connectionStage = 1
+			
+			$SecondConnect.play()
+			
 			validConnection = true
 			get_tree().call_group_flags(2, "outerNodes", "deactivate")
 			visitedNodes[2].activate()
@@ -167,6 +173,9 @@ func checkConnection():
 			clear_points()
 			connectionStage = 1
 			lineStarted = false
+			
+			$ConnectFail.play()
+			
 			get_tree().call_group_flags(2, "outerNodes", "deactivate")
 			get_tree().call_group_flags(2, "innerNodes", "activate")
 			get_tree().call_group_flags(2, "innerNodes", "sync_frame")
