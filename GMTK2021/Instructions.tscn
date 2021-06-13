@@ -212,33 +212,33 @@ texture = ExtResource( 3 )
 position = Vector2( 86.7438, 302.482 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 22 )
-frame = 3
+frame = 2
 playing = true
 
 [node name="JammerSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 90.4818, 425.235 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 31 )
-frame = 6
+frame = 1
 playing = true
 
 [node name="FireSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 280.859, 309.45 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 21 )
-frame = 2
+frame = 3
 playing = true
 
 [node name="EarthSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 423.812, 301.041 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 38 )
-frame = 2
+frame = 3
 playing = true
 
 [node name="IceSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 371.676, 371.676 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 45 )
-frame = 1
+frame = 2
 playing = true
