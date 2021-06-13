@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=2]
+[gd_scene load_steps=90 format=2]
 
 [ext_resource path="res://assets/WIRE_SCALED.png" type="Texture" id=1]
 [ext_resource path="res://GUI/TitleScreen/gmtk2021.png" type="Texture" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://assets/Bridgelit.png" type="Texture" id=4]
 [ext_resource path="res://assets/GooseRocket Logo EMPTY EXPORTED.png" type="Texture" id=5]
 [ext_resource path="res://GUI/TitleScreen/MainMenu.gd" type="Script" id=6]
+[ext_resource path="res://MainGame/ParallaxBackground.gd" type="Script" id=7]
+[ext_resource path="res://assets/city.png" type="Texture" id=8]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -427,16 +429,27 @@ animations = [ {
 script = ExtResource( 6 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource( 7 )
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 6, 1 )
+motion_mirroring = Vector2( 1976, 0 )
 
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 1064, 360 )
+[node name="Background" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 988, 397 )
 texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 1976, 794 )
 
-[node name="Sprite2" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 512, 360 )
-texture = ExtResource( 4 )
+[node name="CityLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.75, 0 )
+motion_mirroring = Vector2( 4096, 0 )
+
+[node name="CityBackground" type="Sprite" parent="ParallaxBackground/CityLayer"]
+texture = ExtResource( 8 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 4096, 176 )
 
 [node name="GMTK2021" type="AnimatedSprite" parent="."]
 position = Vector2( 1280, 576 )
@@ -452,8 +465,7 @@ texture = ExtResource( 5 )
 position = Vector2( 760, 361.335 )
 scale = Vector2( 5, 5 )
 frames = SubResource( 81 )
-frame = 4
-playing = true
+frame = 2
 
 [node name="Play" type="Button" parent="."]
 margin_left = 448.0

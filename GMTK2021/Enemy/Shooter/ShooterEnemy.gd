@@ -10,6 +10,7 @@ var my_type = shooter_type.RED
 
 func _ready():
 	health = 2
+	score = 5000
 	my_type = randi()%3 # Number of shooter types
 	$AnimatedSprite.play("%d"%my_type)
 
