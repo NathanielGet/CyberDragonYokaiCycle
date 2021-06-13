@@ -9,6 +9,7 @@ export var projectile_speed = 1500
 export var acceleration = 1200
 export var friction = 600
 export var max_speed = 500
+export var rate_of_fire = 0.25
 
 const MAX_AMMO = 5
 
@@ -122,7 +123,7 @@ func fire():
 		proj.position = Vector2(position.x + 50, position.y)
 		proj.linear_velocity = Vector2(projectile_speed + momentum.x, momentum.y )
 		cool_down = true
-		yield(get_tree().create_timer(0.5), "timeout")
+		yield(get_tree().create_timer(rate_of_fire), "timeout")
 		cool_down = false
 		ammo -= 1
 		emit_signal("update_ammo", ammo, proj_type)

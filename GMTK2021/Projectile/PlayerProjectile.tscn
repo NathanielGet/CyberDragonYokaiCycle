@@ -7,22 +7,22 @@
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
-atlas = ExtResource( 3 )
+atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=2]
 flags = 4
-atlas = ExtResource( 3 )
+atlas = ExtResource( 2 )
 region = Rect2( 32, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=3]
 flags = 4
-atlas = ExtResource( 3 )
+atlas = ExtResource( 2 )
 region = Rect2( 64, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=4]
 flags = 4
-atlas = ExtResource( 3 )
+atlas = ExtResource( 2 )
 region = Rect2( 96, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=5]
@@ -47,29 +47,29 @@ region = Rect2( 96, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=9]
 flags = 4
-atlas = ExtResource( 2 )
+atlas = ExtResource( 3 )
 region = Rect2( 0, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=10]
 flags = 4
-atlas = ExtResource( 2 )
+atlas = ExtResource( 3 )
 region = Rect2( 32, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=11]
 flags = 4
-atlas = ExtResource( 2 )
+atlas = ExtResource( 3 )
 region = Rect2( 64, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=12]
 flags = 4
-atlas = ExtResource( 2 )
+atlas = ExtResource( 3 )
 region = Rect2( 96, 0, 32, 32 )
 
 [sub_resource type="SpriteFrames" id=13]
 animations = [ {
 "frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
 "loop": true,
-"name": "0",
+"name": "2",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
@@ -79,7 +79,7 @@ animations = [ {
 }, {
 "frames": [ SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
 "loop": true,
-"name": "2",
+"name": "0",
 "speed": 5.0
 } ]
 
@@ -87,19 +87,22 @@ animations = [ {
 radius = 15.0054
 
 [sub_resource type="Gradient" id=15]
-colors = PoolColorArray( 0.027451, 0.717647, 0.0235294, 1, 0.882353, 0.980392, 0.760784, 1 )
+resource_local_to_scene = true
 
 [sub_resource type="GradientTexture" id=16]
+resource_local_to_scene = true
 gradient = SubResource( 15 )
 
 [sub_resource type="Curve" id=17]
+min_value = 1.0
 max_value = 10.0
-_data = [ Vector2( 0, 9 ), 0.0, -6.45455, 0, 1, Vector2( 1, 2.54545 ), -6.45455, 0.0, 1, 0 ]
+_data = [ Vector2( 0, 5.74546 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
 
 [sub_resource type="CurveTexture" id=18]
 curve = SubResource( 17 )
 
 [sub_resource type="ParticlesMaterial" id=19]
+resource_local_to_scene = true
 flag_disable_z = true
 spread = 5.23
 gravity = Vector3( 0, 0, 0 )
@@ -108,8 +111,6 @@ orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale_curve = SubResource( 18 )
 color_ramp = SubResource( 16 )
-hue_variation = 0.32
-hue_variation_random = 0.42
 
 [node name="PlayerProjectile" type="RigidBody2D"]
 collision_layer = 2
