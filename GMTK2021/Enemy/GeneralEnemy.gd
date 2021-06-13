@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
-signal update_score(score)
+signal update_score(score, this_enemy) # also notifies about death
+
 
 export var projectile_speed = 1500
 export var default_speed = 80
@@ -53,7 +54,7 @@ func _on_Area2D_body_entered(_body):
 		# TODO
 		
 		# Send death signal
-		emit_signal("update_score", score)
+		emit_signal("update_score", score, self)
 		
 		# Play death sound
 		#TODO

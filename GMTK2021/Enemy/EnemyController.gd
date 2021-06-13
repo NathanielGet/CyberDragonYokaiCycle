@@ -7,9 +7,6 @@ var homes = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#TODO delete me
-	randomize()
-	
 	for point in get_tree().get_nodes_in_group("HomePoint"):
 		homes.append(null)
 
@@ -27,7 +24,8 @@ func spawn_wave(enemies):
 		enemy.set_name("enemy_%d"%count)
 		path_nodes[count].add_child(enemy)
 			
-		# TODO init enemy type here
+		# Connecting to the score signal
+		enemy.connect("update_score", self, "kill_enemy")
 		
 		# Set the enemy's home point
 		var pos = randi()%homes.size()
@@ -85,7 +83,7 @@ func move_enemy():
 	homes[dest] = homes[src]
 	homes[src] = null
 
-func clean_home(enemy):
+func kill_enemy(score, enemy):
 	var index = homes.find(enemy)
 	if index == -1:
 		print_debug("Missed Enemy in array")
