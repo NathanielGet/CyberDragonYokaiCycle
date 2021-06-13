@@ -8,7 +8,7 @@ var running_enemy_movement_timer = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$EnemyController.spawn_wave([ShooterType, JammerType])
+	$EnemyController.spawn_wave([ShooterType, JammerType, ShooterType, ShooterType])
 	
 
 

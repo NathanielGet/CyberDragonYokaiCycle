@@ -47,7 +47,7 @@ func get_random_filled():
 			return -1
 
 		i = (i + 1)%homes.size()
-		count += 1 
+		count += 1  
 	return i
 	
 func get_random_empty():
@@ -74,12 +74,12 @@ func move_enemy():
 	
 	path.get_curve().add_point(src_point.position, -midpoint)
 	path.get_curve().add_point(dest_point.position, -1 * midpoint)
-	print_debug("Path origin: (%f, %f), Enemy origin: (%f, %f)\nPath target: (%f, %f)"%[path.curve.get_point_position(0).x, path.curve.get_point_position(0).y, 
-									homes[src].position.x, homes[src].position.y, path.curve.get_point_position(1).x, path.curve.get_point_position(1).y])
-	for i in get_tree().get_nodes_in_group("path"):
-		if(path.curve.get_point_count()):
-			print_debug("Path id: %s, Path origin: (%f, %f), Path target: (%f, %f)"%[i.name, i.curve.get_point_position(0).x, i.curve.get_point_position(0).y,
-			i.curve.get_point_position(1).x, i.curve.get_point_position(1).y])
+#	print_debug("Path origin: (%f, %f), Enemy origin: (%f, %f)\nPath target: (%f, %f)"%[path.curve.get_point_position(0).x, path.curve.get_point_position(0).y, 
+#									homes[src].position.x, homes[src].position.y, path.curve.get_point_position(1).x, path.curve.get_point_position(1).y])
+#	for i in get_tree().get_nodes_in_group("path"):
+#		if(path.curve.get_point_count()):
+#			print_debug("Path id: %s, Path origin: (%f, %f), Path target: (%f, %f)"%[i.name, i.curve.get_point_position(0).x, i.curve.get_point_position(0).y,
+#			i.curve.get_point_position(1).x, i.curve.get_point_position(1).y])
 	
 	homes[src].move()
 	homes[dest] = homes[src]
