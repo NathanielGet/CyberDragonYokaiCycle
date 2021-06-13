@@ -90,3 +90,4 @@ func kill_enemy(score, enemy):
 		return
 		
 	homes[index] = null
+	enemy.queue_free()

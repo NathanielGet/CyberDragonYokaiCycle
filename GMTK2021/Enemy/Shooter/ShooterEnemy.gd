@@ -9,7 +9,7 @@ func _ready():
 
 func _process(delta):
 	if counter % fire_rate == 0:
-		#fire()
+		fire()
 		counter = 0
 	counter += 1
 

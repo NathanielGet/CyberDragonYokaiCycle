@@ -50,17 +50,11 @@ func _on_Area2D_body_entered(_body):
 	
 	# Check if dead
 	if health < 1:
-		# Play death animation
-		# TODO
-		
+		#clean up with death function
+		die()
 		# Send death signal
 		emit_signal("update_score", score, self)
-		
-		# Play death sound
-		#TODO
-		
-		# Call death function?
-		queue_free()
+
 	else:
 		return
 		
@@ -76,3 +70,5 @@ func move():
 	cur_spd = default_speed
 	progress = 0
 
+func die():
+	pass
