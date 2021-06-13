@@ -218,26 +218,26 @@ playing = true
 position = Vector2( 90.4818, 425.235 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 14 )
-frame = 6
+frame = 3
 playing = true
 
 [node name="FireSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 280.859, 309.45 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 21 )
-frame = 2
+frame = 5
 playing = true
 
 [node name="EarthSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 423.812, 301.041 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 28 )
-frame = 2
+frame = 5
 playing = true
 
 [node name="IceSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 371.676, 371.676 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 35 )
-frame = 1
+frame = 4
 playing = true
