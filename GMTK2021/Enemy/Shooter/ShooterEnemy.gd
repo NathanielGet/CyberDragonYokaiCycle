@@ -1,6 +1,5 @@
 extends "../GeneralEnemy.gd"
 
-var projectile = preload("res://../Projectile/Projectile.tscn")
 export var fire_rate = 60
 var counter = 0
 

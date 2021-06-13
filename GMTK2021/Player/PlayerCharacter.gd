@@ -16,7 +16,7 @@ export var ammo = MAX_AMMO
 var screen_size
 var momentum = Vector2()
 
-var projectile = preload("res://Projectile/Projectile.tscn")
+var projectile = preload("res://Projectile/PlayerProjectile.tscn")
 var cool_down = false #Cooldown from shooting
 
 signal ammo_empty()
@@ -63,13 +63,13 @@ func _process(delta):
 
 
 
-func _on_PlayerCharacter_body_entered(_body):
+func _on_PlayerCharacter_body_entered(body):
 	# If we are invulnerable, do nothing
-	#print_debug("Here")
+	print_debug("Here")
 	if invuln:
 		return
 	
-	
+	print_debug("Player Hit")
 	#Apply the damage, and alert UI
 	health -= 1
 	emit_signal("update_health", health)

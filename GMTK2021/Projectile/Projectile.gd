@@ -14,6 +14,7 @@ func setup(ptype : int):
 	$AnimatedSprite.play("%d"%[type])
 
 func _on_VisibilityNotifier2D_screen_exited():
+#	print_debug("Projectile Free")
 	queue_free()
 
 func destroy():

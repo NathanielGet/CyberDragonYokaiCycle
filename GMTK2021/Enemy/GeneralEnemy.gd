@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 signal update_score(score, this_enemy) # also notifies about death
-
+var projectile = preload("res://../Projectile/Projectile.tscn")
 
 export var projectile_speed = 1500
 export var default_speed = 80
@@ -40,13 +40,18 @@ func _physics_process(delta):
 	
 	if ((target-position).length() < 1) and (progress > 100):
 		b_is_moving = false
-		print_debug("Enemy origin (%f, %f)"%[position.x, position.y])
 
-func _on_Area2D_body_entered(_body):
+func _on_Area2D_body_entered(body):
 	#Apply the damage, and alert UI
-	print_debug("here")
+	
+
+	# Destroy Player Projectiles
+	print_debug(body.name)
+	if(body.name.find("PlayerProjectile") != -1):
+		print_debug("HERE")
+		body.queue_free()
+		
 	health -= 1
-#	emit_signal("update_health", health)
 	
 	# Check if dead
 	if health < 1:
@@ -57,12 +62,6 @@ func _on_Area2D_body_entered(_body):
 
 	else:
 		return
-		
-		# Play hurt sound
-		#TODO
-
-func _on_VisibilityNotifier2D_screen_exited():
-	queue_free()
 
 func move():
 	b_is_moving = true
@@ -71,4 +70,6 @@ func move():
 	progress = 0
 
 func die():
+	$CollisionShape2D.disabled = true
+	$Area2D/CollisionShape2D.disabled = true
 	pass
