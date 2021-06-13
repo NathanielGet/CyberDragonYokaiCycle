@@ -6,10 +6,18 @@ onready var DummyType = preload("res://Enemy/Dummy/TestEnemy.tscn")
 
 var running_enemy_movement_timer = false
 
+#signal jam()
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
-	$EnemyController.spawn_wave([ShooterType, JammerType, ShooterType, ShooterType])
+	var enemyArray = [ShooterType, JammerType, ShooterType, ShooterType]
+	$EnemyController.spawn_wave(enemyArray)
+	
+	#connect("jam", get_node("Minigame"), "activateJammer")
+	#for i in range(0, enemyArray.size()):
+		#if enemyArray[i] == JammerType:
+			#emit_signal("jam")
 	
 
 

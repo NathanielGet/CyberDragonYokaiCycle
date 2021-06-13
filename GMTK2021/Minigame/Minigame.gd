@@ -19,7 +19,7 @@ func _ready():
 	get_node("greenPort2/Sprite").play()
 	
 	
-	connect("testSignal1", self, "activateJammer")
+	#connect("jam", self, "activateJammer")
 	connect("testSignal2", self, "disableJammer")
 
 
