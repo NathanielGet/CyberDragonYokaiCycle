@@ -106,14 +106,14 @@ colors = PoolColorArray( 0.226563, 0.226563, 0.226563, 1, 0, 0, 0, 0.635294 )
 [sub_resource type="GradientTexture" id=19]
 gradient = SubResource( 18 )
 
-[sub_resource type="Curve" id=22]
+[sub_resource type="Curve" id=20]
 max_value = 4.0
 _data = [ Vector2( 0, 2 ), 0.0, 0.0, 0, 0, Vector2( 1, 1.27273 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=23]
-curve = SubResource( 22 )
+[sub_resource type="CurveTexture" id=21]
+curve = SubResource( 20 )
 
-[sub_resource type="ParticlesMaterial" id=20]
+[sub_resource type="ParticlesMaterial" id=22]
 flag_disable_z = true
 direction = Vector3( -1, -1, 0 )
 spread = 15.7
@@ -121,10 +121,10 @@ gravity = Vector3( -20, 150, 0 )
 initial_velocity = 151.34
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
-scale_curve = SubResource( 23 )
+scale_curve = SubResource( 21 )
 color_ramp = SubResource( 19 )
 
-[sub_resource type="RectangleShape2D" id=21]
+[sub_resource type="RectangleShape2D" id=23]
 extents = Vector2( 48, 32 )
 
 [node name="PlayerCharacter" type="Area2D"]
@@ -133,11 +133,14 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
+projectile_speed = 2000
+acceleration = 2000
+friction = 1200
+max_speed = 1000
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 17 )
 animation = "invincible"
-frame = 6
 playing = true
 
 [node name="Particles2D" type="Particles2D" parent="AnimatedSprite"]
@@ -146,10 +149,10 @@ amount = 5
 lifetime = 0.5
 speed_scale = 3.06
 randomness = 0.66
-process_material = SubResource( 20 )
+process_material = SubResource( 22 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 21 )
+shape = SubResource( 23 )
 
 [node name="InvulnTimer" type="Timer" parent="."]
 one_shot = true
