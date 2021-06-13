@@ -16,6 +16,7 @@ script = ExtResource( 4 )
 script = ExtResource( 3 )
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 6, 1 )
 motion_mirroring = Vector2( 1976, 0 )
 
 [node name="Background" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
@@ -25,16 +26,20 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 1976, 794 )
 
 [node name="CityLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2( 0.35, 0 )
+motion_scale = Vector2( 0.75, 0 )
+motion_mirroring = Vector2( 4096, 0 )
 
 [node name="CityBackground" type="Sprite" parent="ParallaxBackground/CityLayer"]
 texture = ExtResource( 2 )
 centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 4096, 176 )
 
 [node name="PlayerCharacter" parent="." instance=ExtResource( 1 )]
 position = Vector2( 192, 472 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 950, 368 )
 stream = ExtResource( 8 )
 autoplay = true
 

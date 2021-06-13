@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/city.png-02b383d5b5b6aa591b88e70ba700cd66.stex"
+path="res://.import/Flamey_Pentapus.png-9421ea5648405fd37888513739afa9c1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/city.png"
-dest_files=[ "res://.import/city.png-02b383d5b5b6aa591b88e70ba700cd66.stex" ]
+source_file="res://assets/Flamey_Pentapus.png"
+dest_files=[ "res://.import/Flamey_Pentapus.png-9421ea5648405fd37888513739afa9c1.stex" ]
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=1
+flags/repeat=0
 flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
