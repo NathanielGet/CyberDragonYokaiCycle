@@ -1,4 +1,4 @@
-[gd_scene load_steps=105 format=2]
+[gd_scene load_steps=108 format=2]
 
 [ext_resource path="res://Minigame/Wire.gd" type="Script" id=1]
 [ext_resource path="res://Minigame/Sprites/Minigame_UI_V2_SCALED.png" type="Texture" id=2]
@@ -12,7 +12,10 @@
 [ext_resource path="res://Minigame/Sprites/deactivedblue.png" type="Texture" id=10]
 [ext_resource path="res://Minigame/Minigame.gd" type="Script" id=11]
 [ext_resource path="res://Minigame/Port.gd" type="Script" id=12]
+[ext_resource path="res://assets/CONNECTION_FAILED.wav" type="AudioStream" id=13]
 [ext_resource path="res://Minigame/Sprites/jammerlines.png" type="Texture" id=14]
+[ext_resource path="res://assets/CONNECTION_SUCCESS_2.wav" type="AudioStream" id=15]
+[ext_resource path="res://assets/CONNECTION_SUCCESS_1.wav" type="AudioStream" id=16]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -644,6 +647,18 @@ width = 50.0
 default_color = Color( 1, 1, 1, 1 )
 texture_mode = 2
 script = ExtResource( 1 )
+
+[node name="ConnectFail" type="AudioStreamPlayer" parent="Wire"]
+stream = ExtResource( 13 )
+volume_db = -1.5
+
+[node name="FirstConnect" type="AudioStreamPlayer" parent="Wire"]
+stream = ExtResource( 16 )
+volume_db = -1.5
+
+[node name="SecondConnect" type="AudioStreamPlayer" parent="Wire"]
+stream = ExtResource( 15 )
+volume_db = -1.5
 
 [node name="JammerOverlay" type="AnimatedSprite" parent="."]
 visible = false
