@@ -37,9 +37,9 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity)
 	progress += cur_spd * delta
 	
-	if (target-position).length() < 1:
+	if ((target-position).length() < 1) and (progress > 100):
 		b_is_moving = false
-		print_debug("here")
+		print_debug("Enemy origin (%f, %f)"%[position.x, position.y])
 
 func _on_Area2D_body_entered(_body):
 	#Apply the damage, and alert UI
@@ -71,6 +71,7 @@ func _on_VisibilityNotifier2D_screen_exited():
 
 func move():
 	b_is_moving = true
+#	print_debug("%s move called on %s"%[self.name, get_parent().name])
 	cur_spd = default_speed
 	progress = 0
 
