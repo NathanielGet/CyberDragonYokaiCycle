@@ -3,7 +3,7 @@ extends KinematicBody2D
 signal update_score(score, this_enemy) # also notifies about death
 var projectile = preload("res://../Projectile/Projectile.tscn")
 
-export var projectile_speed = 1500
+export var projectile_speed = 750
 export var default_speed = 80
 export var max_speed = 400
 
