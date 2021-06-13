@@ -34,7 +34,8 @@ func spawn_wave(enemies):
 		while(homes[pos] != null):
 			pos = (pos + 1)%homes.size()
 		homes[pos] = path_nodes[count].get_node("enemy_%d"%count)
-		homes[pos].position = get_node("Points/Point_%d"%pos).position
+		homes[pos].position = Vector2(1300, get_node("Points/Point_%d"%pos).position.y)
+		move_to_home(pos)
 		
 		count += 1
 	
@@ -76,16 +77,21 @@ func move_enemy():
 	
 	path.get_curve().add_point(src_point.position, -midpoint)
 	path.get_curve().add_point(dest_point.position, -1 * midpoint)
-#	print_debug("Path origin: (%f, %f), Enemy origin: (%f, %f)\nPath target: (%f, %f)"%[path.curve.get_point_position(0).x, path.curve.get_point_position(0).y, 
-#									homes[src].position.x, homes[src].position.y, path.curve.get_point_position(1).x, path.curve.get_point_position(1).y])
-#	for i in get_tree().get_nodes_in_group("path"):
-#		if(path.curve.get_point_count()):
-#			print_debug("Path id: %s, Path origin: (%f, %f), Path target: (%f, %f)"%[i.name, i.curve.get_point_position(0).x, i.curve.get_point_position(0).y,
-#			i.curve.get_point_position(1).x, i.curve.get_point_position(1).y])
 	
 	homes[src].move()
 	homes[dest] = homes[src]
 	homes[src] = null
+	
+func move_to_home(src):
+	var dest_point = get_node("Points/Point_%d"%src)
+	var path = homes[src].get_parent()
+	
+	path.get_curve().clear_points()
+	
+	path.get_curve().add_point(homes[src].position)
+	path.get_curve().add_point(dest_point.position)
+	
+	homes[src].move()
 
 func kill_enemy(score, enemy):
 	var index = homes.find(enemy)
