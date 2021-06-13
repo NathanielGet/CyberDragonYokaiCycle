@@ -25,7 +25,7 @@ var invuln = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	screen_size = get_viewport_rect().size #TODO update this to play area
+	#screen_size = get_viewport_rect().size #TODO update this to play area
 	connect("ammo_empty", get_node("../Minigame/Wire"), "resetPanel")
 
 
@@ -54,8 +54,8 @@ func _process(delta):
 	position += momentum * delta
 	
 	#TODO change these to the play area, not the screen size
-	position.x = clamp(position.x, 0, screen_size.x)
-	position.y = clamp(position.y, 0, screen_size.y)
+	position.x = clamp(position.x, 0, 1032)
+	position.y = clamp(position.y, 232, 720)
 	
 	# Add animation stuffs here
 
