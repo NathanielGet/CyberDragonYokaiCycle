@@ -45,15 +45,17 @@ stream = ExtResource( 8 )
 volume_db = -5.0
 autoplay = true
 
-[node name="Minigame" parent="." instance=ExtResource( 9 )]
-
 [node name="EnemyController" parent="." instance=ExtResource( 10 )]
 
 [node name="EnemyMovementTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="Minigame" parent="." instance=ExtResource( 9 )]
+z_index = 10
+
 [node name="HUD" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1088, 0 )
+z_index = 2
 
 [connection signal="wave_complete" from="EnemyController" to="." method="_on_EnemyController_wave_complete"]
 [connection signal="timeout" from="EnemyMovementTimer" to="." method="_on_EnemyMovementTimer_timeout"]
