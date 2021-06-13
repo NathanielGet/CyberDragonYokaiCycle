@@ -1,9 +1,11 @@
 extends Node
 signal move(target_enemy)
+signal wave_complete
 
 onready var enemy_type = preload("res://Enemy/GeneralEnemy.tscn")
 
 var homes = []
+var enemy_count
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -35,6 +37,8 @@ func spawn_wave(enemies):
 		homes[pos].position = get_node("Points/Point_%d"%pos).position
 		
 		count += 1
+	
+	enemy_count = count
 		
 func get_random_filled():
 	# TODO make better maybe use find on homes array, and then random on that array
@@ -90,4 +94,8 @@ func kill_enemy(score, enemy):
 		return
 		
 	homes[index] = null
+	enemy_count -= 1
 	enemy.queue_free()
+	
+	if !enemy_count:
+		emit_signal("wave_complete")

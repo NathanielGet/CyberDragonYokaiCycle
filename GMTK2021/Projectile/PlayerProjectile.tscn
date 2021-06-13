@@ -86,28 +86,28 @@ animations = [ {
 [sub_resource type="CircleShape2D" id=14]
 radius = 15.0054
 
-[sub_resource type="Gradient" id=18]
+[sub_resource type="Gradient" id=15]
 colors = PoolColorArray( 0.027451, 0.717647, 0.0235294, 1, 0.882353, 0.980392, 0.760784, 1 )
 
-[sub_resource type="GradientTexture" id=19]
-gradient = SubResource( 18 )
+[sub_resource type="GradientTexture" id=16]
+gradient = SubResource( 15 )
 
-[sub_resource type="Curve" id=20]
+[sub_resource type="Curve" id=17]
 max_value = 10.0
 _data = [ Vector2( 0, 9 ), 0.0, -6.45455, 0, 1, Vector2( 1, 2.54545 ), -6.45455, 0.0, 1, 0 ]
 
-[sub_resource type="CurveTexture" id=21]
-curve = SubResource( 20 )
+[sub_resource type="CurveTexture" id=18]
+curve = SubResource( 17 )
 
-[sub_resource type="ParticlesMaterial" id=17]
+[sub_resource type="ParticlesMaterial" id=19]
 flag_disable_z = true
 spread = 5.23
 gravity = Vector3( 0, 0, 0 )
 initial_velocity = -1500.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
-scale_curve = SubResource( 21 )
-color_ramp = SubResource( 19 )
+scale_curve = SubResource( 18 )
+color_ramp = SubResource( 16 )
 hue_variation = 0.32
 hue_variation_random = 0.42
 
@@ -130,4 +130,4 @@ shape = SubResource( 14 )
 [node name="Particles2D" type="Particles2D" parent="."]
 amount = 15
 lifetime = 0.5
-process_material = SubResource( 17 )
+process_material = SubResource( 19 )

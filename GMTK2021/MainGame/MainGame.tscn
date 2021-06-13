@@ -58,4 +58,5 @@ margin_left = -352.0
 margin_bottom = 8.0
 script = ExtResource( 6 )
 
+[connection signal="wave_complete" from="EnemyController" to="." method="_on_EnemyController_wave_complete"]
 [connection signal="timeout" from="EnemyMovementTimer" to="." method="_on_EnemyMovementTimer_timeout"]
