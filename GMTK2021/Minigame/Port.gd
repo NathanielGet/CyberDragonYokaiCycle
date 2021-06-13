@@ -25,3 +25,6 @@ func deactivate():
 
 func activate():
 	$Sprite.set_animation("default")
+
+func sync_frame():
+	$Sprite.frame = 0

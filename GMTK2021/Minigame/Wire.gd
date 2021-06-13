@@ -9,6 +9,7 @@ var lastNodeEntered
 var validConnection = false
 var connectionStage = 1
 var scaleOffset
+var newWire = true
 
 signal load_ammo(ammo_type)
 
@@ -33,13 +34,16 @@ func _process(_delta):
 				remove_point(1)
 		
 		# If the line hasn't been drawn, check for mouse click on a node
-		elif Input.is_action_pressed("click") and mouseOver == true:
+		elif Input.is_action_pressed("click") and mouseOver == true and newWire:
 			# If we're breaking a connection, shuffle the inner ring ports
-			if validConnection:
+			if validConnection and newWire:
 				spinInner()
-				get_tree().call_group("outerNodes", "deactivate")
-				get_tree().call_group("innerNodes", "activate")
+				get_tree().call_group_flags(2, "outerNodes", "deactivate")
+				get_tree().call_group_flags(2, "innerNodes", "activate")
+				get_tree().call_group_flags(2, "innerNodes", "sync_frame")
 				validConnection = false
+				newWire = false
+				clear_points()
 			
 			# Regardless, add the node we just hovered over to visitedNodes
 			visitedNodes[0] = lastNodeEntered
@@ -49,18 +53,14 @@ func _process(_delta):
 				lineStarted = true
 		
 		# Check to see if connection should be formed when mouse is released
-		if Input.is_action_just_released("click"):
-			# Stop drawing line
-			lineStarted = false
+		if lineStarted and mouseOver:
+			# Register node hovered over
+			visitedNodes[1] = lastNodeEntered
 			
-			# If hovering over a node, register that node, then check connection
-			if mouseOver == true:
-				visitedNodes[1] = lastNodeEntered
+			# If the new node isn't the same as the registered node, try to establish connection
+			if visitedNodes[0] != visitedNodes[1]:
 				checkConnection()
-				
-			# Otherwise, erase the wire for an invalid connection
-			else:
-				clear_points()
+
 				
 	elif connectionStage == 2:
 		# Check if line is currently being drawn		
@@ -71,38 +71,39 @@ func _process(_delta):
 			# Prevent line from being larger than two points
 			if self.points.size() > 3:
 				remove_point(2)
-		
-		# If the line hasn't been drawn, check for mouse click on a node
-		elif Input.is_action_pressed("click") and mouseOver == true:
-			# Make sure the wire starts from the last connected node
-			if visitedNodes[1] == lastNodeEntered:
-				lineStarted = true
+			
+			# If you hover over a node, try to connect
+			if mouseOver:
+				# Register new node
+				visitedNodes[2] = lastNodeEntered;
 				
-			# If the node was the center node, restart the connection by going back to stage 1
-			elif visitedNodes[0] == lastNodeEntered:
-				connectionStage = 1
-				get_tree().call_group("innerNodes", "activate")
-				get_tree().call_group("outerNodes", "deactivate")
+				# Check that you're not hovering same nodes already visited
+				if visitedNodes[0] != lastNodeEntered and visitedNodes[1] != lastNodeEntered:
+					checkConnection()
 		
 		# Check to see if connection should be formed when mouse is released
-		if lineStarted and Input.is_action_just_released("click"):
+		if lineStarted and validConnection:
 			# Stop drawing line
 			lineStarted = false
-			
-			# If hovering over a node, register that node, then check connection
-			if mouseOver == true:
-				visitedNodes[2] = lastNodeEntered
-				checkConnection()
-				
-			# Otherwise, erase the last point for an invalid connection
-			else:
-				remove_point(2)
+			newWire = false
+		
+
+	if Input.is_action_just_released("click"):
+		lineStarted = false
+		connectionStage = 1
+		newWire = true
+		
+		if !validConnection:
+			get_tree().call_group_flags(2, "outerNodes", "deactivate")
+			get_tree().call_group_flags(2, "innerNodes", "activate")
+			get_tree().call_group_flags(2, "innerNodes", "sync_frame")
+			clear_points()
 
 # Socket function for signal when mouse hovers over port
 func entered(node):
 	lastNodeEntered = node
 	mouseOver = true
-	#print(port)
+	print(node.nodeColor, node.nodeRing)
 	#print("Moused Over")
 
 # Socket function for signal when mouse moves away from port
@@ -126,14 +127,12 @@ func checkConnection():
 			
 			# Shuffle the outer ring ports
 			spinOuter()
-			get_tree().call_group("outerNodes", "activate")
+			get_tree().call_group_flags(2, "outerNodes", "activate")
 			get_tree().call_group_flags(2, "innerNodes", "deactivate")
 			visitedNodes[1].activate()
-
-		
-		else:
-			# If not a valid connection, erase the wire
-			clear_points()
+			visitedNodes[1].sync_frame()
+			get_tree().call_group_flags(2, "outerNodes", "sync_frame")
+			
 			
 	elif connectionStage == 2:
 		# Check if the wire ends on an outer ring and that the colors match
@@ -150,10 +149,17 @@ func checkConnection():
 			validConnection = true
 			get_tree().call_group_flags(2, "outerNodes", "deactivate")
 			visitedNodes[2].activate()
+			visitedNodes[1].sync_frame()
+			visitedNodes[2].sync_frame()
 			emit_signal("load_ammo", visitedNodes[1].nodeColor)
-		else:
+		elif visitedNodes[2].nodeRing != "inner":
 			# If not a valid connection, erase the last point
-			remove_point(2)
+			clear_points()
+			connectionStage = 1
+			lineStarted = false
+			get_tree().call_group_flags(2, "outerNodes", "deactivate")
+			get_tree().call_group_flags(2, "innerNodes", "activate")
+			get_tree().call_group_flags(2, "innerNodes", "sync_frame")
 
 # Shuffles positions of outer ports
 func spinOuter():
@@ -176,7 +182,6 @@ func spinInner():
 	nodePositions.shuffle()
 	for i in range(0, innerNodes.size()):
 		innerNodes[i].position = nodePositions[i]
-	
 
 # Test function for ammo signal
 func testAmmoSignal(ammo):
