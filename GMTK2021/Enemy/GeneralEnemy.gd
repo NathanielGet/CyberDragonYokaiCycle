@@ -52,14 +52,13 @@ func _on_Area2D_body_entered(body):
 		take_damage(body.type)
 		body.queue_free()
 	
+	yield($AudioStreamPlayer, "finished")
 	# Check if dead
 	if health < 1:
 		#clean up with death function
 		die()
 		# Send death signal
 		emit_signal("update_score", score, self)
-	else:
-		$DamageAnim.play("DamageFlash")
 
 func move():
 	b_is_moving = true
@@ -74,3 +73,5 @@ func die():
 
 func take_damage(_type):
 	health -= 1
+	$AudioStreamPlayer.play()
+	$DamageAnim.play("DamageFlash")

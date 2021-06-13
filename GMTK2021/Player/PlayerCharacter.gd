@@ -21,6 +21,7 @@ var momentum = Vector2()
 
 var projectile = preload("res://Projectile/PlayerProjectile.tscn")
 var cool_down = false #Cooldown from shooting
+var can_play_sound = true #Cooldown for empty click
 
 onready var proj_type = $"/root/ProjectileTypes".attack_type.RED
 
@@ -77,6 +78,7 @@ func _on_PlayerCharacter_body_entered(body):
 		
 	#Apply the damage, and alert UI
 	health -= 1
+	$Hit.play()
 	emit_signal("update_health", health)
 	
 	# Check if dead
@@ -122,6 +124,7 @@ func fire():
 		proj.setup(proj_type)
 		proj.position = Vector2(position.x + 50, position.y)
 		proj.linear_velocity = Vector2(projectile_speed + momentum.x, momentum.y )
+		$Shoot.play()
 		cool_down = true
 		yield(get_tree().create_timer(rate_of_fire), "timeout")
 		cool_down = false
@@ -129,9 +132,11 @@ func fire():
 		emit_signal("update_ammo", ammo, proj_type)
 		if ammo == 0:
 			emit_signal("ammo_empty")			
-#	else:
-#		emit_signal("ammo_empty")
-#		print_debug("Empty")
+	elif can_play_sound:
+		$EmptyMag.play()
+		can_play_sound = false
+		yield(get_tree().create_timer(rate_of_fire), "timeout")
+		can_play_sound = true
 
 func reload(ammo_type):
 	match ammo_type:
@@ -143,4 +148,5 @@ func reload(ammo_type):
 			proj_type = $"/root/ProjectileTypes".attack_type.GREEN
 	
 	ammo = MAX_AMMO
+	cool_down = false
 	emit_signal("update_ammo", ammo, proj_type)

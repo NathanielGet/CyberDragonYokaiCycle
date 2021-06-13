@@ -28,7 +28,8 @@ func fire():
 	proj.position = Vector2(position.x - 50, position.y)
 	proj.linear_velocity = -Vector2(projectile_speed, variation)
 	proj.rotation += sin(float(variation)/(float(projectile_speed)))
-	yield(get_tree().create_timer(fire_rate), "timeout")
+	$Fire.play()
+	yield(get_tree().create_timer(fire_rate + rand_range(-0.25,0.25)), "timeout")
 	can_fire = true
 
 func take_damage(type):

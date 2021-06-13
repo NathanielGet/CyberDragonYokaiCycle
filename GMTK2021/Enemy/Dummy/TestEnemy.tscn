@@ -1,7 +1,27 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/DUMMY_SALCED.png" type="Texture" id=1]
 [ext_resource path="res://Enemy/Dummy/TestEnemy.gd" type="Script" id=2]
+[ext_resource path="res://assets/Crack.wav" type="AudioStream" id=3]
+
+[sub_resource type="Shader" id=9]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform vec4 flash_color : hint_color = vec4(1.0);
+uniform float flash_modifier : hint_range(0.0, 1.0) = 0.0;
+
+void fragment(){
+	vec4 color = texture(TEXTURE, UV);
+	color.rgb = mix(color.rgb, flash_color.rgb, flash_modifier);
+	COLOR = color;
+}"
+
+[sub_resource type="ShaderMaterial" id=10]
+resource_local_to_scene = true
+shader = SubResource( 9 )
+shader_param/flash_color = Color( 1, 1, 1, 1 )
+shader_param/flash_modifier = 0.0
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -61,8 +81,9 @@ __meta__ = {
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+material = SubResource( 10 )
 frames = SubResource( 5 )
-frame = 3
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -76,3 +97,6 @@ shape = SubResource( 7 )
 
 [node name="DamageAnim" type="AnimationPlayer" parent="."]
 anims/DamageFlash = SubResource( 8 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
