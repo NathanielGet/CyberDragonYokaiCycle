@@ -17,6 +17,7 @@ config/icon="res://assets/icon.png"
 [autoload]
 
 ProjectileTypes="*res://Projectile/ProjectileTypes.gd"
+MusicPlayer="*res://MusicPlayer.tscn"
 
 [display]
 
