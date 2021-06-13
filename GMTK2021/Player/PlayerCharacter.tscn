@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Player/PlayerCharacter.gd" type="Script" id=1]
 [ext_resource path="res://assets/PENDY_scalded.png" type="Texture" id=2]
@@ -96,7 +96,32 @@ animations = [ {
 "speed": 40.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=18]
+[sub_resource type="Gradient" id=18]
+offsets = PoolRealArray( 0, 0.0155039 )
+colors = PoolColorArray( 0.226563, 0.226563, 0.226563, 1, 0, 0, 0, 0.635294 )
+
+[sub_resource type="GradientTexture" id=19]
+gradient = SubResource( 18 )
+
+[sub_resource type="Curve" id=22]
+max_value = 4.0
+_data = [ Vector2( 0, 2 ), 0.0, 0.0, 0, 0, Vector2( 1, 1.27273 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=23]
+curve = SubResource( 22 )
+
+[sub_resource type="ParticlesMaterial" id=20]
+flag_disable_z = true
+direction = Vector3( -1, -1, 0 )
+spread = 15.7
+gravity = Vector3( -20, 150, 0 )
+initial_velocity = 151.34
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale_curve = SubResource( 23 )
+color_ramp = SubResource( 19 )
+
+[sub_resource type="RectangleShape2D" id=21]
 extents = Vector2( 48, 32 )
 
 [node name="PlayerCharacter" type="Area2D"]
@@ -111,8 +136,16 @@ frames = SubResource( 17 )
 animation = "invincible"
 playing = true
 
+[node name="Particles2D" type="Particles2D" parent="AnimatedSprite"]
+position = Vector2( -40, 20 )
+amount = 5
+lifetime = 0.5
+speed_scale = 3.06
+randomness = 0.66
+process_material = SubResource( 20 )
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 18 )
+shape = SubResource( 21 )
 
 [node name="InvulnTimer" type="Timer" parent="."]
 one_shot = true
