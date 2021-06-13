@@ -14,7 +14,8 @@ onready var AMMO_GREEN = $"/root/ProjectileTypes".attack_type.GREEN
 onready var AMMO_BLUE = $"/root/ProjectileTypes".attack_type.BLUE
 onready var AMMO_RED = $"/root/ProjectileTypes".attack_type.RED
 
-onready var ammo_label = $UI/Ammo
+onready var ammo_label = $AmmoCount
+onready var ammo_sprite = $AmmoType
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,7 +24,7 @@ func _ready():
 	lives1 = preload("res://assets/Lives1.png")
 	lives0 = preload("res://assets/Lives0.png")
 	
-	lifeBar = $UI/lifeBar
+	lifeBar = $lifeBar
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -42,13 +43,12 @@ func displayHealth(health):
 			lifeBar.set_texture(lives0)
 
 func displayAmmo(ammo, type):
-	var ammo_type
 	match(type):
 		AMMO_GREEN:
-			ammo_type = "green"
+			ammo_sprite.set_animation("green")
 		AMMO_BLUE:
-			ammo_type = "blue"
+			ammo_sprite.set_animation("blue")
 		AMMO_RED:
-			ammo_type = "red"
+			ammo_sprite.set_animation("red")
 	
-	ammo_label.text = "Ammo: " + ammo_type + " " + str(ammo)
+	ammo_label.text = str(ammo)
