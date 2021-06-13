@@ -69,7 +69,9 @@ func _on_PlayerCharacter_body_entered(body):
 	if invuln:
 		return
 	
-	print_debug("Player Hit")
+	if(body.name.find("EnemyProjectile") != -1):
+		body.queue_free()
+		
 	#Apply the damage, and alert UI
 	health -= 1
 	emit_signal("update_health", health)
