@@ -442,7 +442,7 @@ texture = ExtResource( 4 )
 position = Vector2( 1280, 576 )
 frames = SubResource( 74 )
 animation = "New Anim 1"
-frame = 44
+frame = 40
 playing = true
 
 [node name="GR" type="Sprite" parent="."]
