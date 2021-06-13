@@ -29,6 +29,7 @@ var invuln = false
 func _ready():
 	#screen_size = get_viewport_rect().size #TODO update this to play area
 	connect("ammo_empty", get_node("../Minigame/Wire"), "resetPanel")
+	connect("update_health", get_node("../HUD"), "displayHealth")
 
 
 func _process(delta):
@@ -65,7 +66,7 @@ func _process(delta):
 
 func _on_PlayerCharacter_body_entered(body):
 	# If we are invulnerable, do nothing
-	print_debug("Here")
+	#print_debug("Here")
 	if invuln:
 		return
 	
@@ -84,6 +85,7 @@ func _on_PlayerCharacter_body_entered(body):
 		# Send death signal
 		emit_signal("death")
 		
+		queue_free()
 		# Play death sound
 		#TODO
 		

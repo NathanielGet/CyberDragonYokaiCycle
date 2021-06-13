@@ -20,7 +20,7 @@ func _ready():
 	
 	
 	#connect("jam", self, "activateJammer")
-	connect("testSignal2", self, "disableJammer")
+	#connect("testSignal2", self, "disableJammer")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
