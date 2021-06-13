@@ -3,6 +3,7 @@ extends "../GeneralEnemy.gd"
 export var fire_rate = 1
 var can_fire = true
 var counter = 0
+export var fire_arc = 300
 
 enum shooter_type {RED, GREEN, BLUE}
 var my_type = shooter_type.RED
@@ -18,12 +19,15 @@ func _process(delta):
 
 # TODO Add arc of aim
 func fire():
+	var variation = randi()%fire_arc - fire_arc/2
+	
 	can_fire = false
 	var proj = projectile.instance()
 	get_node("/root/MainGame").add_child(proj)
 	proj.setup(my_type)
 	proj.position = Vector2(position.x - 50, position.y)
-	proj.linear_velocity = -Vector2(projectile_speed, 0)
+	proj.linear_velocity = -Vector2(projectile_speed, variation)
+	proj.rotation += sin(float(variation)/(float(projectile_speed)))
 	yield(get_tree().create_timer(fire_rate), "timeout")
 	can_fire = true
 
