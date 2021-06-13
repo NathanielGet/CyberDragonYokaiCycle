@@ -35,6 +35,7 @@ func _ready():
 	connect("update_ammo", get_node("../HUD"), "displayAmmo")
 	connect("death", get_node(".."), "game_over")
 	connect("death", get_node("../EnemyController"), "clear_enemies")
+	$AnimatedSprite.animation = "default"
 
 
 func _process(delta):
@@ -95,8 +96,9 @@ func _on_PlayerCharacter_body_entered(body):
 		
 		# Call death function?
 #		$DeathTimer.start()
-		$Vanish.interpolate_property($AnimatedSprite, "modulate", Color(1, 1, 1, 1), Color(1, 1, 1, 0), 0.5, Tween.TRANS_LINEAR, Tween.EASE_IN)
-		$Vanish.start()
+#		$Vanish.interpolate_property($AnimatedSprite, "modulate", Color(1, 1, 1, 1), Color(1, 1, 1, 0), 0.5, Tween.TRANS_LINEAR, Tween.EASE_IN)
+#		$Vanish.start()
+		$AnimatedSprite.play("dead")
 		
 	else:
 		$Hit.play()
@@ -162,3 +164,8 @@ func _on_DeathTimer_timeout():
 
 func _on_Vanish_tween_completed(object, key):
 	queue_free()
+
+
+func _on_AnimatedSprite_animation_finished():
+	if $AnimatedSprite.animation == "dead":
+		queue_free()
