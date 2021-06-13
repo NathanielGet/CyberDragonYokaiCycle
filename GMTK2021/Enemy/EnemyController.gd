@@ -105,3 +105,8 @@ func kill_enemy(score, enemy):
 	
 	if !enemy_count:
 		emit_signal("wave_complete")
+
+func clear_enemies():
+	for i in homes:
+		if i != null:
+			i.queue_free()

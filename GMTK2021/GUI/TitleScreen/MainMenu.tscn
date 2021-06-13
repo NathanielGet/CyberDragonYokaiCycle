@@ -380,7 +380,7 @@ animations = [ {
 "speed": 8.0
 }, {
 "frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ), SubResource( 43 ), SubResource( 44 ), SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ), SubResource( 49 ), SubResource( 50 ), SubResource( 51 ), SubResource( 52 ), SubResource( 53 ), SubResource( 54 ), SubResource( 55 ), SubResource( 56 ), SubResource( 57 ), SubResource( 58 ), SubResource( 59 ), SubResource( 60 ), SubResource( 61 ), SubResource( 62 ), SubResource( 63 ), SubResource( 64 ), SubResource( 65 ), SubResource( 66 ), SubResource( 67 ), SubResource( 68 ), SubResource( 69 ), SubResource( 70 ), SubResource( 71 ), SubResource( 72 ), SubResource( 73 ) ],
-"loop": true,
+"loop": false,
 "name": "New Anim 1",
 "speed": 33.0
 } ]
@@ -442,8 +442,6 @@ texture = ExtResource( 4 )
 position = Vector2( 1280, 576 )
 frames = SubResource( 74 )
 animation = "New Anim 1"
-frame = 51
-playing = true
 
 [node name="GR" type="Sprite" parent="."]
 position = Vector2( 176, 576 )
@@ -454,7 +452,6 @@ texture = ExtResource( 5 )
 position = Vector2( 760, 361.335 )
 scale = Vector2( 5, 5 )
 frames = SubResource( 81 )
-frame = 4
 playing = true
 
 [node name="Play" type="Button" parent="."]

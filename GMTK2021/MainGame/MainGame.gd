@@ -6,7 +6,9 @@ onready var DummyType = preload("res://Enemy/Dummy/TestEnemy.tscn")
 
 var running_enemy_movement_timer = false
 var wave_count = 0
+var game_is_over = false
 
+onready var over_screen = preload("res://HUD/GameOver.tscn")
 #signal jam()
 
 # Called when the node enters the scene tree for the first time.
@@ -22,7 +24,7 @@ func _ready():
 
 
 func _process(delta):
-	if !running_enemy_movement_timer:
+	if !running_enemy_movement_timer and !game_is_over:
 		$EnemyController.move_enemy()
 		$EnemyMovementTimer.start()
 		#print_debug("Called move enemy from main")
@@ -54,3 +56,10 @@ func create_wave(wait_time):
 	
 	$EnemyMovementTimer.set_wait_time(wait_time)	
 	$EnemyController.spawn_wave(enemyArrays[wave_count])
+
+func game_over():
+	self.add_child(over_screen.instance())
+	game_is_over = true
+
+func restart():
+	get_tree().reload_current_scene()
