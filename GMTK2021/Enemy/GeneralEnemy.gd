@@ -65,8 +65,8 @@ func move():
 	progress = 0
 
 func die():
-	$CollisionShape2D.disabled = true
-	$Area2D/CollisionShape2D.disabled = true
+	$CollisionShape2D.set_deferred("disabled", true)
+	$Area2D/CollisionShape2D.set_deferred("disabled", true)
 	emit_signal("unjam")
 
 func take_damage(_type):
