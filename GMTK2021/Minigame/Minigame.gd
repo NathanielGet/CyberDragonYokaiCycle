@@ -24,9 +24,9 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	if Input.is_action_pressed("fire"):
-		emit_signal("testSignal2")
+#func _process(delta):
+	#if Input.is_action_pressed("fire"):
+		#emit_signal("testSignal1")
 			
 func activateJammer():
 	get_node("JammerOverlay").show()
