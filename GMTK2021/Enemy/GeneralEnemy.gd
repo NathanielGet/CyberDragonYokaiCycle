@@ -16,13 +16,13 @@ var velocity = Vector2()
 var progress = 0
 var cur_spd = 40
 
-signal unjam()
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_viewport_rect().size #TODO update this to play area
 	$Area2D.connect("body_entered", self, "_on_Area2D_body_entered")
-	connect("unjam", get_node("../../../../Minigame"), "disableJammer")
+	
 	connect("update_score", get_node("../../../../HUD"), "displayScore")
 
 func _physics_process(delta):
@@ -69,7 +69,7 @@ func move():
 func die():
 	$CollisionShape2D.set_deferred("disabled", true)
 	$Area2D/CollisionShape2D.set_deferred("disabled", true)
-	emit_signal("unjam")
+	
 
 func take_damage(_type):
 	health -= 1
